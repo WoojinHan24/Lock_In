@@ -15,13 +15,14 @@ class lock_in_data:
     data_label : list
     results : list
     parameter : dict
+    tessaract_mode : bool
 
-    def __init__(self, file_name, data_label, parameter):
+    def __init__(self, file_name, data_label, parameter, tessaract_mode = False):
         self.file_name = file_name
         self.data_label = data_label
         self.parameter = parameter
         self.full_image = Image.open(self.file_name)
-
+        self.tessaract_mode = tessaract_mode
         self.read_png()
 
     def read_png(self):
@@ -50,21 +51,24 @@ class lock_in_data:
         for crop_tuple in crop_tuples:
             self.cropped_images.append(self.full_image.crop(crop_tuple))
         for cropped_image, data_type in zip(self.cropped_images, range(len(self.data_label))):
-            result_string = pyt.image_to_string(cropped_image, config='--psm 10 --oem 3 -c tessedit_char_whitelist=0123456789.-')
 
-            try:
-                result=float(result_string)
-                if 'phase'  in self.data_label[data_type]:
-                    if  np.abs(result) > 180 or result_string == ' ':
-                        print("Inaccurate reading may occurs. Please check and read ERROR.PNG" )
-                        cropped_image.save("./ERROR.PNG")
-                        result = input("Commit data : ")
-
-                    
-            except ValueError:
-                print("Unreadable error occurs. Please read ERROR.PNG")
+            if self.tessaract_mode == False:
                 cropped_image.save("./ERROR.PNG")
-                result = input("Commit data : ")
+                result = input("Commit data :")
+            else:
+                result_string = pyt.image_to_string(cropped_image, config='--psm 10 --oem 3 -c tessedit_char_whitelist=0123456789.-')
+                try:
+                    result=float(result_string)
+                    if 'phase'  in self.data_label[data_type]:
+                        if  np.abs(result) > 180 or result_string == ' ':
+                            print("Inaccurate reading may occurs. Please check and read ERROR.PNG" )
+                            cropped_image.save("./ERROR.PNG")
+                            result = input("Commit data : ")
+
+                except ValueError:
+                    print("Unreadable error occurs. Please read ERROR.PNG")
+                    cropped_image.save("./ERROR.PNG")
+                    result = input("Commit data : ")
                 
                 
             self.results.append(result)
@@ -150,6 +154,8 @@ def phys_plot(
 
     fig.tight_layout()
     return fig
+
+
 
 def dictionary_boolean(
     dic1, dic2

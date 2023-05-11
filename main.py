@@ -55,15 +55,9 @@ except FileNotFoundError:
     with open("./datum.pkl", "wb") as f:
         pickle.dump(datum,f)
 
-
 experiment = 'preamplifier'
-fig = lock_in_data.phys_plot(datum[experiment],'frequency(kHz)', lambda x : x.results[0]/x.results[1], {'gain' : 1},x_label="frequency [kHz]" , y_label= "Amplitude_ratio", fmt = 'ko')
-fig.savefig(f"./results/preamplifier_amp_ratio_freq_plot(gain{1}).png")
+for gain in [1,2,5,10,20]:
+    fig = lock_in_data.phys_plot(datum[experiment],'frequency(kHz)', lambda x : x.results[0]/x.results[1], {'gain' : gain},x_label="frequency [kHz]" , y_label= "Amplitude_ratio", fmt = 'ko')
+    fig.savefig(f"./results/preamplifier_amp_ratio_freq_plot(gain{gain}).png")
 
-
-# for experiment in experiments:
-#     print(f"For {experiment},")       
-#     for data in datum[experiment]:
-#         data.print_data()
-        
 
