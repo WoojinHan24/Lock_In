@@ -2,6 +2,7 @@ import pytesseract as pyt
 from PIL import Image
 import matplotlib.pyplot as plt
 import pandas as pd
+import scipy.optimize as opt
 import numpy as np
 
 exceptional_cases = [528,529,530,531,532,533,534]
@@ -126,12 +127,28 @@ def get_data_labels(
 
 
 def phys_plot(
-    data_set, x_parameter, dep_variable_function, fixed_parameter, x_label, y_label, fmt, fitting_function = 'none'
+    data_set,
+    x_parameter,
+    dep_variable_function,
+    fixed_parameter,
+    x_label,
+    y_label,
+    fmt,
+    fitting_function = 'none',
+    p0=0,
+    additional_line = 'none',
+    error_bar_y = 'none',
+    print_param= False
 ): 
     #data set : list of lock_in_data type
     #x_parameter : the x-variable of a figure, must be a key of an data parameter dictionary
-    #y_parameter : the y-variable of a figure, must be a lambda function of an data results.
+    #dep_variable_function : the y-variable of a figure, must be a lambda function of an data results.
     #fixed_parameter: the parameter which should be fixed. It must be a type of subdictionary of a datatype
+    #fitting_function : fitting function of the plot
+    #p0 : initial parameter setting
+    #additional line : additional line setup attribute
+    #error bar mode : input of lambda function of stderr in data x.
+    #print_param : to print regression results.
 
     fig = plt.figure(figsize=(4,4))
     ax = fig.add_subplot(1,1,1)
@@ -139,18 +156,43 @@ def phys_plot(
     x_list=[]
     y_list=[]
 
+
+
+    ax.set_xlabel(x_label)
+    ax.set_ylabel(y_label)
+
     for data in data_set:
         if dictionary_boolean(data.parameter,fixed_parameter):
             x_list.append(data.parameter[x_parameter])
             y_list.append(dep_variable_function(data))
-    
 
     x= np.array(x_list)
     y= np.array(y_list)
+
+
+    x_con=np.linspace(min(x_list),max(x_list),50)
+    if fitting_function != 'none':
+        param,_=get_regression_result(x_list,y_list,fitting_function,p0)
+        ax.plot(x_con,fitting_function(x_con,*param),'r-')
+        if print_param == True:
+            print(param)
+            residuals = y - fitting_function(x,*param)
+            ss_res = np.sum(residuals**2)
+            ss_tot = np.sum((y-np.mean(y))**2)
+            print("R^2 = " ,1-ss_res/ss_tot)
+
+
+    if additional_line != 'none':
+        y_con = np.ones_like(x_con,dtype=np.float64)
+        y_con= y_con*additional_line
+        ax.plot(x_con,y_con,'b-')
+
+    if error_bar_y != 'none':
+        yerr = error_bar_y(x)
+        plt.errorbar(x,y,yerr=yerr,fmt=fmt)
+    else:
+        ax.plot(x,y,fmt)
     
-    ax.plot(x,y,fmt)
-    ax.set_xlabel(x_label)
-    ax.set_ylabel(y_label)
 
     fig.tight_layout()
     return fig
@@ -174,3 +216,17 @@ def dictionary_boolean(
         return KeyError
     
     return True
+
+
+def get_regression_result(
+    x,y,fitting_function, p0
+):
+    param, param_covariance=opt.curve_fit(
+        fitting_function,
+        x,
+        y,
+        p0,
+        maxfev=60000
+    )
+
+    return param,param_covariance

@@ -15,6 +15,16 @@
 \usepackage{float}
 \usepackage{subcaption}
 \usepackage{gensymb}
+\usepackage{amsmath}
+\usepackage{geometry}
+
+\geometry{
+    a4paper,
+    left=30mm,
+    right=30mm,
+    top=30mm,
+    bottom=40mm
+}
 
 \begin{document}
 
@@ -101,15 +111,15 @@ Every result of each experiment is in \ref{results: start} with the same subsect
 
  \begin{figure}[ht]
   \centering
-  \begin{subfigure}[b]{6cm}
+  \begin{subfigure}[b]{7cm}
       \centering
-      \includegraphics[width=6cm]{../results/preamplifier_circuit.png}
+      \includegraphics[width=7cm]{../results/preamplifier_circuit.png}
       \caption{}
   \end{subfigure}
   \hfill
-  \begin{subfigure}[b]{6cm}
+  \begin{subfigure}[b]{7cm}
       \centering
-      \includegraphics[width=6cm]{../raw_data/TEK00071.PNG}
+      \includegraphics[width=7cm]{../raw_data/TEK00071.PNG}
       \caption{}
   \end{subfigure}
   \hfill
@@ -129,15 +139,15 @@ And the last one is set to the final signal of each experiment.
 I have emphasized the modified circuit in each subsection.
 \begin{figure}[ht]
     \centering
-    \begin{subfigure}[b]{6cm}
+    \begin{subfigure}[b]{7cm}
         \centering
-        \includegraphics[width=6cm]{../results/phase_shifter_circuit.png}
+        \includegraphics[width=7cm]{../results/phase_shifter_circuit.png}
         \caption{}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[b]{6cm}
+    \begin{subfigure}[b]{7cm}
         \centering
-        \includegraphics[width=6cm]{../raw_data/TEK00306.PNG}
+        \includegraphics[width=7cm]{../raw_data/TEK00306.PNG}
         \caption{}
     \end{subfigure}
     \hfill
@@ -158,15 +168,15 @@ I have emphasized the modified circuit in each subsection.
  I also display the phase-shifted input signal of the DBM module in the third channel of the oscilloscope.
  \begin{figure}[ht]
     \centering
-    \begin{subfigure}[b]{6cm}
+    \begin{subfigure}[b]{7cm}
         \centering
-        \includegraphics[width=6cm]{../results/DBM_circuit.png}
+        \includegraphics[width=7cm]{../results/DBM_circuit.png}
         \caption{}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[b]{6cm}
+    \begin{subfigure}[b]{7cm}
         \centering
-        \includegraphics[width=6cm]{../raw_data/TEK00396.PNG}
+        \includegraphics[width=7cm]{../raw_data/TEK00396.PNG}
         \caption{}
     \end{subfigure}
     \hfill
@@ -191,15 +201,15 @@ I have emphasized the modified circuit in each subsection.
 
  \begin{figure}[ht]
     \centering
-    \begin{subfigure}[b]{6cm}
+    \begin{subfigure}[b]{7cm}
         \centering
-        \includegraphics[width=6cm]{../results/low_pass_amplifier_circuit.png}
+        \includegraphics[width=7cm]{../results/low_pass_amplifier_circuit.png}
         \caption{}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[b]{6cm}
+    \begin{subfigure}[b]{7cm}
         \centering
-        \includegraphics[width=6cm]{../raw_data/TEK00453.PNG}
+        \includegraphics[width=7cm]{../raw_data/TEK00453.PNG}
         \caption{}
     \end{subfigure}
     \hfill
@@ -220,15 +230,15 @@ I have emphasized the modified circuit in each subsection.
  The second is to form a Lock-In detection experiment to figure out a signal from the noise.
  \begin{figure}[ht]
     \centering
-    \begin{subfigure}[b]{6cm}
+    \begin{subfigure}[b]{7cm}
         \centering
-        \includegraphics[width=6cm]{../results/noise_circuit.png}
+        \includegraphics[width=7cm]{../results/noise_circuit.png}
         \caption{}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[b]{6cm}
+    \begin{subfigure}[b]{7cm}
         \centering
-        \includegraphics[width=6cm]{../results/noise_detection_circuit.png}
+        \includegraphics[width=7cm]{../results/noise_detection_circuit.png}
         \caption{}
     \end{subfigure}
     \hfill
@@ -247,15 +257,15 @@ I have emphasized the modified circuit in each subsection.
  Also, in this experiment the phase difference is fixed up to $\pi$, the circuit contains two more channels of reference and phase-shifted reference signal.
  \begin{figure}[ht]
     \centering
-    \begin{subfigure}[b]{6cm}
+    \begin{subfigure}[b]{7cm}
         \centering
-        \includegraphics[width=6cm]{../results/DC_off_set_circuit.png}
+        \includegraphics[width=7cm]{../results/DC_off_set_circuit.png}
         \caption{}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[b]{6cm}
+    \begin{subfigure}[b]{7cm}
         \centering
-        \includegraphics[width=6cm]{../raw_data/TEK00640.PNG}
+        \includegraphics[width=7cm]{../raw_data/TEK00640.PNG}
         \caption{}
     \end{subfigure}
     \hfill
@@ -276,15 +286,15 @@ I have emphasized the modified circuit in each subsection.
  The circuit is formed as the manual, but the phase difference is also directly measured as above experiments.
  \begin{figure}[ht]
     \centering
-    \begin{subfigure}[b]{6cm}
+    \begin{subfigure}[b]{7cm}
         \centering
-        \includegraphics[width=6cm]{../results/hall_sensor_circuit.png}
+        \includegraphics[width=7cm]{../results/hall_sensor_circuit.png}
         \caption{}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[b]{6cm}
+    \begin{subfigure}[b]{7cm}
         \centering
-        \includegraphics[width=6cm]{../raw_data/TEK00697.PNG}
+        \includegraphics[width=7cm]{../raw_data/TEK00697.PNG}
         \caption{}
     \end{subfigure}
     \hfill
@@ -308,22 +318,239 @@ I have emphasized the modified circuit in each subsection.
  The specific file name of each plot is also obtained in Fig. \ref{fig: file_appendix}.
 
 \begin{figure}[H]
-    \begin{tabular}{ | m{8cm} | m{5cm}|  } 
+    \begin{tabular}{  m{6.2cm} | m{7.7cm}  } 
+
       file name& details \\ 
       \hline
-        \verb|preamplifier amp ratio freq plot(gainx).png| & preamplifier amplitude ratio - frequency plot in gain $x$
+        LI picturename.xlsx & The labeled Excel file\\
+      \hline
+        preamplifier gain freq plot(gain x).png & preamplifier gain-frequency plot in displayed gain $x$\\
+      \hline
+        preamplifier phase freq plot(gain x).png & preamplifier phase shift-frequency plot in displayed gain $x$\\
+      \hline
+        phase shifter gain freq plot(phase x).png & phase shifter gain-frequency plot in displayed phase shift $x$\\
+      \hline
+        phase shifter phase freq plot(phase x).png & phase shifter lagged phase-frequency plot in displayed phase shift $x$
+        
     \end{tabular}
     \caption{file appendix of \cite{github}}
     \label{fig: file_appendix}
 \end{figure}
 
 \subsection{Preamplifier}
+ The output signal from the preamplifier is not uniformly amplified.
+ The term gain($G$) means the real amplitude ratio between the input and the output signal.
+ In each, (gain) $=$(output amplitude)$/$(input amplitude) in the unit of voltage.
+ Fig. \ref{fig: preamplifier_gain_plot} shows the gain by frequency plot in different displayed gains for 2, 5, and 10.
+ The results of displayed gain 1 and 20 are uploaded at \cite{github}, the following appendix in \ref{fig: file_appendix}.
+ The experimental error of the voltage measurement is about $2mV$, which gives $1\%$ error which is disregarded to be plotted.
+ The blue line represents each displayed gain, which is far different from the real gain value.
+ Also, I found that the phase is shifted by the frequency increases which is not expected.
+ Fig. \ref{fig: preamplifier_phase_plot} shows the regularity of the lagged phase in the output signal of the preamplifier.
+ The preamplifier circuit must contain the transistor device, the phase and slew rate response are very weird to occur.
+ Especially the detection amount is high enough to see the linear relationship between frequency and phase response.
+
+
+ \begin{figure}[ht]
+    \begin{subfigure}[b]{4.3cm}
+        \centering
+        \includegraphics[width=4.3cm]{../results/preamplifier_gain_freq_plot(gain2).png}
+        \caption{}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{4.3cm}
+      \centering
+      \includegraphics[width=4.3cm]{../results/preamplifier_gain_freq_plot(gain5).png}
+      \caption{}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{4.3cm}
+    \centering
+    \includegraphics[width=4.3cm]{../results/preamplifier_gain_freq_plot(gain10).png}
+    \caption{}
+  \end{subfigure}
+  \hfill
+    \caption{Preamplifier Gain data for displayed gain (a) 2 (b) 5 (c) 10 in gain - frequency [$kHz$] (black dots),
+     its displayed gain is in the blue line. The error bar is too small(under 1\%) to be neglected.
+     }
+    \label{fig: preamplifier_gain_plot}
+  \end{figure}
+  \begin{figure}[ht]
+    \begin{subfigure}[b]{4.3cm}
+        \centering
+        \includegraphics[width=4.3cm]{../results/preamplifier_phase_freq_plot(gain2).png}
+        \caption{}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{4.3cm}
+      \centering
+      \includegraphics[width=4.3cm]{../results/preamplifier_phase_freq_plot(gain5).png}
+      \caption{}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{4.3cm}
+    \centering
+    \includegraphics[width=4.3cm]{../results/preamplifier_phase_freq_plot(gain10).png}
+    \caption{}
+  \end{subfigure}
+  \hfill
+    \caption{Preamplifier phase shift data for displayed gain (a) 2 (b) 5 (c) 10 in phase[$\degree$] - frequency [$kHz$] (black dots).
+    The error bar is too small(under 1\%) to be neglected.
+     }
+    \label{fig: preamplifier_phase_plot}
+  \end{figure}
+
+  In the log scale experiment, the 3dB frequency can be found.
+
 
 \subsection{Phase Shifter: Lagging phase detection}
 \label{results: phase shifter}
+ The phase shifter also has an unexpected phase response.
+ The displayed phase shift value is controlled by two dials.
+ The first dial controls the phase in a unit of $90\degree$, and the secondary fine phase dial controls the accurate proportion to the first dial.
+ For example, to shift $75\degree$ the phase dial set up to $0\degree$ and the fine phase should point out $75\degree$
+ It is experimentally sure that in fixed frequency, the total rotation of a phase dial spans $360\degree$ phase shift.
+ However, the lagged phase is too definite to ignore, having a linear relationship with frequency.
+ Fig. \ref{fig: phaseshifter_phase_plot} shows the frequency dependant lagged phase results.
+ The red lines are linear regression results and fit very well.
+ Specific regression results are given in Fig. \ref{fig: phase shifter linear regression results}.
+ The phase shifter is usually formed based on an RC circuit.
+ Contrary expectation to the ideal operational amplifier in the core of the circuit, the operational amplifier may follow Shockley's equation to ruin the frequency-independent phase shift property.
+ Also, the gain has changed in the response of the circuit.
+ Fig. \ref{fig: phaseshifter_gain_plot} shows the frequency dependant gain results.
+ In the ideal circuit, the gain should never change from 1.
+ But the experimental results do not doubt claim the phase shifter gives an unexpected gain response.
+ And it is even worse, the gain data is far above 1, and peak natured.
+ The data shows there are somehow resonance phenomena near 400[$Hz$].
+ There are two big meanings in these results.
+ First, I can never trust the displayed phase in this group of experiments.
+ Since the lagged phase extends over $180\degree$, the displayed phase shift can not be trusted.
+ Moreover, the preamplifier gives meaningful phase shifts and fluctuating gain results.
+ This reasoning leads me to fix the circuit to directly measure the real shifted phase in the experiment.
+ I don't use the linear regression results to convert the displayed phase into the real shifted phase but to put two of the signal directly in the oscilloscope.
+ Secondly, the peaked nature of the gain-frequency plot means this phase shifter circuit contains RC and an operational amplifier module inside.
+
+
+ 
+ \begin{figure}[ht]
+    \begin{subfigure}[b]{3.1cm}
+        \centering
+        \includegraphics[width=3.1cm]{../results/phaseshifter_phase_freq_plot(phase0).png}
+        \caption{}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{3.1cm}
+      \centering
+      \includegraphics[width=3.1cm]{../results/phaseshifter_phase_freq_plot(phase90).png}
+      \caption{}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{3.1cm}
+    \centering
+    \includegraphics[width=3.1cm]{../results/phaseshifter_phase_freq_plot(phase180).png}
+    \caption{}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{3.1cm}
+    \centering
+    \includegraphics[width=3.1cm]{../results/phaseshifter_phase_freq_plot(phase270).png}
+    \caption{}
+  \end{subfigure}
+  \hfill
+    \caption{Phaseshifter lagged phase data for displayed phase shift (a) 0$\degree$ (b) 90$\degree$ (c) 180$\degree$ (d) 270$\degree$ in lagged phase[$\degree$] - frequency [$Hz$] (black dots)
+        The error bar stands for $2\sigma = 20\degree$, the red line is linear regression results.
+     }
+    \label{fig: phaseshifter_phase_plot}
+  \end{figure}
+
+  \begin{figure}[H]
+    \begin{tabular}{  m{3cm} | m{3cm} | m{3cm} | m{3cm}  } 
+
+      displayed phase[$\degree$]& a[$\degree/Hz$] & b[$\degree$] & $R^2$\\ 
+      \hline
+        0 & $0.324 \pm 0.03 $ & $ 156 \pm 5$& 0.979\\
+      \hline
+        90 & $0.319 \pm 0.03$& $60 \pm 5$& 0.997\\
+      \hline
+      180 & $0.466 \pm 0.03$& $-217 \pm 5$& 0.983\\
+      \hline
+      270 & $0.481 \pm 0.03$& $-315 \pm 5$& 0.986
+    \end{tabular}
+    \caption{The linear regression statics of Fig. \ref{fig: phaseshifter_phase_plot}}
+    \label{fig: phase shifter linear regression results}
+\end{figure}
+
+\begin{figure}[ht]
+  \begin{subfigure}[b]{3.1cm}
+      \centering
+      \includegraphics[width=3.1cm]{../results/phaseshifter_gain_freq_plot(phase0).png}
+      \caption{}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{3.1cm}
+    \centering
+    \includegraphics[width=3.1cm]{../results/phaseshifter_gain_freq_plot(phase90).png}
+    \caption{}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{3.1cm}
+  \centering
+  \includegraphics[width=3.1cm]{../results/phaseshifter_gain_freq_plot(phase180).png}
+  \caption{}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{3.1cm}
+  \centering
+  \includegraphics[width=3.1cm]{../results/phaseshifter_gain_freq_plot(phase270).png}
+  \caption{}
+\end{subfigure}
+\hfill
+  \caption{Phaseshifter gain data for displayed phase shift (a) 0$\degree$ (b) 90$\degree$ (c) 180$\degree$ (d) 270$\degree$ in gain - frequency [$Hz$] (black dots)
+      The error bar is under 5\% to be disregarded.
+   }
+  \label{fig: phaseshifter_gain_plot}
+\end{figure}
+
 
 \subsection{DBM}
+As mentioned at \ref{results: phase shifter}, the yellow and purple results in Fig. \ref{fig: DBM_plot} are very effective.
+The phase difference between the two inputs is directly measured and intuitively matches the DBM results.
+The DBM filter works very fine but, the edgy cut at the end of the wavelength has been detected.
+It is because of the fluctuation of the frequencies between two inputs caused by the phase shifter, especially in low frequencies (10~100 Hz).
+But the area of those DBM results are about a few $\mu V \cdot s$, which means those edge effect can be neglectable in the calculation of Lock-In detection.
 
+
+\begin{figure}[ht]
+  \begin{subfigure}[b]{6.3cm}
+      \centering
+      \includegraphics[width=6.3cm]{../raw_data/TEK00355.PNG}
+      \caption{}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{6.3cm}
+    \centering
+    \includegraphics[width=6.3cm]{../raw_data/TEK00356.PNG}
+    \caption{}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{6.3cm}
+  \centering
+  \includegraphics[width=6.3cm]{../raw_data/TEK00357.PNG}
+  \caption{}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{6.3cm}
+  \centering
+  \includegraphics[width=6.3cm]{../raw_data/TEK00358.PNG}
+  \caption{}
+\end{subfigure}
+\hfill
+  \caption{DBM signal results of phase difference (a) 0 (b) 90 (c) 180 (d) 270 [$\degree$], of 50[Hz] frequency input.
+      The yellow signal is the reference input voltage, and the purple one represents the phase-shifted signal.
+      The blue signal is the signal after the DBM calculation.
+   }
+  \label{fig: DBM_plot}
+\end{figure}
 \subsection{Low Pass Filter}
 \label{results: low pass filter}
 

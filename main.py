@@ -1,7 +1,8 @@
 import lock_in_data
 import pandas as pd
 import pickle
-
+from scipy.constants import pi as pi
+import numpy as np
 
 index_label_file_name = "./LI_picturename.xlsx"
 df = pd.read_excel(index_label_file_name, sheet_name= None)
@@ -55,9 +56,71 @@ except FileNotFoundError:
     with open("./datum.pkl", "wb") as f:
         pickle.dump(datum,f)
 
+
+
 experiment = 'preamplifier'
+
+print(experiment)
 for gain in [1,2,5,10,20]:
-    fig = lock_in_data.phys_plot(datum[experiment],'frequency(kHz)', lambda x : x.results[0]/x.results[1], {'gain' : gain},x_label="frequency [kHz]" , y_label= "Amplitude_ratio", fmt = 'ko')
-    fig.savefig(f"./results/preamplifier_amp_ratio_freq_plot(gain{gain}).png")
+    preamplifier_gain_fig = lock_in_data.phys_plot(
+        datum[experiment],
+        'frequency(kHz)',
+        lambda x : x.results[0]/x.results[1],
+        {'gain' : gain},
+        x_label="frequency [kHz]" ,
+        y_label= "gain(output/input)",
+        fmt = 'ko',
+        additional_line = gain
+        )
+    
+    preamplifier_gain_fig.savefig(f"./results/preamplifier_gain_freq_plot(gain{gain}).png")
+
+    preamplifier_phase_fig = lock_in_data.phys_plot(
+        datum[experiment],
+        'frequency(kHz)',
+        lambda x: x.results[2] if x.results[2]>0 else x.results[2]+360,
+        {'gain' : gain},
+        x_label="frequency [kHz]" ,
+        y_label= "phase shift [$\degree$]",
+        fmt = 'ko',
+    )
+    
+    preamplifier_phase_fig.savefig(f"./results/preamplifier_phase_freq_plot(gain{gain}).png")
 
 
+experiment = 'phaseshifter'
+
+print(experiment)
+for phase, Delta in zip([0,90,180,270],[150,50,-200,-300]):
+    #Delta is very practical value of 2pi shifting
+
+    phaseshifter_gain_fig = lock_in_data.phys_plot(
+        datum[experiment],
+        'frequency(Hz)',
+        lambda x : x.results[0]/x.results[1],
+        {'phase' : phase, 'fine phase' : 0},
+        x_label="frequency [Hz]" ,
+        y_label= "gain(output/input)",
+        fmt = 'ko',
+        )
+    
+    phaseshifter_gain_fig.savefig(f"./results/phaseshifter_gain_freq_plot(phase{phase}).png")
+
+    phaseshifter_phase_fig = lock_in_data.phys_plot(
+        datum[experiment],
+        'frequency(Hz)',
+        lambda x: x.results[2]-phase if x.results[2]-phase>Delta else x.results[2]-phase+360,
+        {'phase' : phase, 'fine phase' : 0},
+        x_label="frequency [Hz]" ,
+        y_label= "phase shift [$\degree$]",
+        fmt = 'ko',
+        fitting_function=lambda x,a,b : a*x+b,
+        p0=[3.75,0],
+        error_bar_y= lambda x: 20,
+        print_param=True
+    )
+    
+    phaseshifter_phase_fig.savefig(f"./results/phaseshifter_phase_freq_plot(phase{phase}).png")
+
+# for data in datum[experiment]:
+#     data.print_data()
