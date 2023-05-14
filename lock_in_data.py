@@ -134,21 +134,26 @@ def phys_plot(
     x_label,
     y_label,
     fmt,
+    x_variable_function='none',
     fitting_function = 'none',
     p0=0,
     additional_line = 'none',
     error_bar_y = 'none',
-    print_param= False
+    print_param= False,
+    dosing_y= 'none',
+    dosing_x0 = 'none'
 ): 
     #data set : list of lock_in_data type
     #x_parameter : the x-variable of a figure, must be a key of an data parameter dictionary
     #dep_variable_function : the y-variable of a figure, must be a lambda function of an data results.
     #fixed_parameter: the parameter which should be fixed. It must be a type of subdictionary of a datatype
+    #x_variable_function : besides x_parameter, can use x_variable_function option.
     #fitting_function : fitting function of the plot
     #p0 : initial parameter setting
     #additional line : additional line setup attribute
     #error bar mode : input of lambda function of stderr in data x.
-    #print_param : to print regression results.
+    #print_param : to print regression results.\
+    #dosing_y : find x value when fitting function results = dosing_y
 
     fig = plt.figure(figsize=(4,4))
     ax = fig.add_subplot(1,1,1)
@@ -163,12 +168,15 @@ def phys_plot(
 
     for data in data_set:
         if dictionary_boolean(data.parameter,fixed_parameter):
-            x_list.append(data.parameter[x_parameter])
+            if  x_variable_function == 'none':
+                x_list.append(data.parameter[x_parameter])
+            else:
+                x_list.append(x_variable_function(data))
+
             y_list.append(dep_variable_function(data))
 
     x= np.array(x_list)
     y= np.array(y_list)
-
 
     x_con=np.linspace(min(x_list),max(x_list),50)
     if fitting_function != 'none':
@@ -181,14 +189,20 @@ def phys_plot(
             ss_tot = np.sum((y-np.mean(y))**2)
             print("R^2 = " ,1-ss_res/ss_tot)
 
+        if dosing_y != 'none':
+            print("dosing results: ",opt.fsolve(lambda x: fitting_function(x,*param)-dosing_y,dosing_x0))
+
+
 
     if additional_line != 'none':
         y_con = np.ones_like(x_con,dtype=np.float64)
         y_con= y_con*additional_line
         ax.plot(x_con,y_con,'b-')
 
+    
+
     if error_bar_y != 'none':
-        yerr = error_bar_y(x)
+        yerr = [error_bar_y(x_element) for x_element in x]
         plt.errorbar(x,y,yerr=yerr,fmt=fmt)
     else:
         ax.plot(x,y,fmt)
@@ -205,7 +219,6 @@ def dictionary_boolean(
     if len(dic1) < len(dic2):
         dic2, dic1 = zip(dic1,dic2)
 
-
     
     for key in list(dic2.keys()):
         try:
@@ -213,7 +226,7 @@ def dictionary_boolean(
                 return False
         except KeyError:
             print("Unexpected key from dict boolean")
-        return KeyError
+            return KeyError
     
     return True
 

@@ -3,6 +3,11 @@ import pandas as pd
 import pickle
 from scipy.constants import pi as pi
 import numpy as np
+import warnings
+
+
+warnings.filterwarnings(action='ignore')
+
 
 index_label_file_name = "./LI_picturename.xlsx"
 df = pd.read_excel(index_label_file_name, sheet_name= None)
@@ -91,6 +96,7 @@ for gain in [1,2,5,10,20]:
 experiment = 'phaseshifter'
 
 print(experiment)
+
 for phase, Delta in zip([0,90,180,270],[150,50,-200,-300]):
     #Delta is very practical value of 2pi shifting
 
@@ -117,10 +123,60 @@ for phase, Delta in zip([0,90,180,270],[150,50,-200,-300]):
         fitting_function=lambda x,a,b : a*x+b,
         p0=[3.75,0],
         error_bar_y= lambda x: 20,
-        print_param=True
+        print_param=False
     )
     
     phaseshifter_phase_fig.savefig(f"./results/phaseshifter_phase_freq_plot(phase{phase}).png")
 
+experiment = 'Low-pass Amplifier'
+print(experiment)
+
+def lpf_fitting(
+    log_f,tau
+):
+    f= 10**log_f
+    return -10*np.log10(1+(2*pi*f*tau)**2)
+
+
+for db_oct in [6,12]:
+    for time_constant in [0.03,0.1,0.3]:
+
+
+        Low_pass_amplifier_gain_fig = lock_in_data.phys_plot(
+            datum[experiment],
+            'none',
+            lambda x : 20*np.log10(x.results[3]/x.results[2]),
+            {'dB/oct' : db_oct, 'Time Constant' : time_constant},
+            x_label = "log(frequency)",
+            y_label = "$\Delta$dB",
+            fmt = "ko",
+            x_variable_function = lambda x: np.log10(float(x.parameter['frequency(log scale)'][0:-2])) if x.parameter['frequency(log scale)'][-3]!='m' else np.log10(float(x.parameter['frequency(log scale)'][0:-3])/1000),
+            additional_line = -3,
+            fitting_function=lpf_fitting,
+            p0=[time_constant],
+            error_bar_y = lambda x: 2 if x<0.5 else 5,
+            print_param=True,
+            dosing_y=-3,
+            dosing_x0=0.5
+        )
+
+        
+        Low_pass_amplifier_gain_fig.savefig(f"./results/low_pass_filter_gain_freq_plot(db_oct{db_oct})(time_constant{time_constant}).png")
+
+
+
 # for data in datum[experiment]:
 #     data.print_data()
+#     data.full_image.save("./ERROR.PNG")
+#     a = input("Commit data:")
+#     try:
+#         data.results[3]=float(a)
+#         print("Modified")
+#     except ValueError:
+#         continue
+
+
+
+
+# with open("./datum.pkl", "wb") as f:
+#     pickle.dump(datum,f)

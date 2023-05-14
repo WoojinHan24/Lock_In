@@ -17,6 +17,7 @@
 \usepackage{gensymb}
 \usepackage{amsmath}
 \usepackage{geometry}
+\usepackage{multirow}
 
 \geometry{
     a4paper,
@@ -322,6 +323,7 @@ I have emphasized the modified circuit in each subsection.
 
       file name& details \\ 
       \hline
+      \hline
         LI picturename.xlsx & The labeled Excel file\\
       \hline
         preamplifier gain freq plot(gain x).png & preamplifier gain-frequency plot in displayed gain $x$\\
@@ -330,7 +332,9 @@ I have emphasized the modified circuit in each subsection.
       \hline
         phase shifter gain freq plot(phase x).png & phase shifter gain-frequency plot in displayed phase shift $x$\\
       \hline
-        phase shifter phase freq plot(phase x).png & phase shifter lagged phase-frequency plot in displayed phase shift $x$
+        phase shifter phase freq plot(phase x).png & phase shifter lagged phase-frequency plot in displayed phase shift $x$\\
+      \hline
+        low pass filter gains freq plot(db oct x)(time constant y).png & low pass filter gain in dB - log frequency plot in displayed db/Oct $x$, time constant $y$
         
     \end{tabular}
     \caption{file appendix of \cite{github}}
@@ -517,8 +521,7 @@ As mentioned at \ref{results: phase shifter}, the yellow and purple results in F
 The phase difference between the two inputs is directly measured and intuitively matches the DBM results.
 The DBM filter works very fine but, the edgy cut at the end of the wavelength has been detected.
 It is because of the fluctuation of the frequencies between two inputs caused by the phase shifter, especially in low frequencies (10~100 Hz).
-But the area of those DBM results are about a few $\mu V \cdot s$, which means those edge effect can be neglectable in the calculation of Lock-In detection.
-
+But the area of those DBM results is about a few $\mu V \cdot s$, which means those edge effects can be neglectable in the calculation of Lock-In detection.
 
 \begin{figure}[ht]
   \begin{subfigure}[b]{6.3cm}
@@ -551,8 +554,111 @@ But the area of those DBM results are about a few $\mu V \cdot s$, which means t
    }
   \label{fig: DBM_plot}
 \end{figure}
+
+The measurement error of voltage is about $1mV$, and the time interval must be calculated by $1/f$.
+For the null hypothesis, the DBM edge effect affects the Lock-In detection is rejected.
+The phase detection error is about $5 \degree$, by the fluctuation.
+The standard error of the area is $40 \mu V$.
+The experimental results are found around the standard error.
+
+
+
 \subsection{Low Pass Filter}
 \label{results: low pass filter}
+
+ The low pass filter works with the impedance ratio of the input and output channels.
+ An inductor does not help to amplify low-frequency signals, the fitting function is as follows.
+ The roll-off factor is the term that after filtering area, the amount of amplitude decay by 1 octave.
+ This means, the gradient in $\log(f) - 20\log(G)$ plot value can be modified by the circuit.
+ Moreover, the noise from this filter is devastating to read accurate values in the oscilloscope.
+ Fig. \ref{fig: raw_plot of LPF} is the oscilloscope screenshots of 20[$Hz$] signal input, $12 dB/oct$ roll-off and 0.03-time constant.
+ To find a 3dB frequency, the measurement in high-frequency signal in low pass filter is unavoidable.
+ But, the noise is not neglectable in high-frequency response, I read the median value in each data in the grid.
+ Some of the data in high-frequency is even unreadable, so the measurement error is about 5dB.
+
+ \begin{figure}[H]
+  \centering
+  \includegraphics[width = 6cm] {../raw_data/TEK00484.PNG}
+  \caption{The oscilloscope screenshots of 20[$Hz$] signal input, $12 dB/oct$ roll-off and 0.03 time constant}
+  \label{fig: raw_plot of LPF}
+ \end{figure}
+
+ Fig. \ref{fig: LPF plot} shows the gain in dB to frequencies in log scale plots.
+ The red line is the fitted line following \ref{equation: LPF fitting function}.
+ The blue line is a $-3dB$ line and the intersection point with the fitted line gives 3dB frequency, the useful parameter of the filter.
+ The specific results of the fitting parameter are given in Fig. \ref{fig: LPF statics}.
+ The gain value has a big measurement error and dominates the statics error.
+ The measured time constant has a large difference from a displayed time constant, and it is because of the dB/Oct modification module.
+ To modify dB/Oct in the low pass filter, the simple fitting function as \ref{equation: LPF fitting function} is invalid.
+ The RC circuit must contain secondary propagation of an operational amplifier, which makes the fitting function more complex than before.
+ But the fact is clear, the higher time constant, the lower dB/oct gives less 3dB frequency.
+ The less 3dB frequency implies the sharp filtering performance of the low pass filter, I fixed these parameters in dB/Oct 12, time constant 0.03 [s] in other experimnets.
+
+ \begin{equation}
+  G = \frac{1}{\sqrt{(2 \pi f \tau)^2 +1}}
+  \label{equation: LPF fitting function}
+ \end{equation}
+
+ 
+ \begin{figure}[H]
+  \begin{tabular}{  m{3cm} | m{4cm} | m{1cm} | m{1cm} | m{3cm}  } 
+
+    displayed dB/Oct& displayed time constant[s] & $\tau$[s] & $R^2$ & 3dB frequency [Hz]\\ \hline
+     \multirow{3}{*}{6}& 0.03  & 0.06 & 0.89 & 2.7 \\ \cline{2-5}
+       & 0.1& 0.33 & 0.92 & 0.49\\ \cline{2-5}
+       & 0.3& 0.43 & 0.98 & 0.37\\ \hline
+       \multirow{3}{*}{12}& 0.03  & 0.12 & 0.98 & 1.3 \\ \cline{2-5}
+       & 0.1& 0.35 & 0.82 & 0.46\\ \cline{2-5}
+       & 0.3& 0.96 & 0.88 & 0.16\\ \hline
+    
+  \end{tabular}
+  \caption{The linear regression statics of Fig. \ref{fig: phaseshifter_phase_plot}, std error of $tau$ and 3dB frequency are 0.03 [s], 0.2 [Hz] respectively.
+  This error is from a measurement error, not a statistic error.}
+  \label{fig: LPF statics}
+\end{figure}
+
+ \begin{figure}[H]
+  \begin{subfigure}[b]{6.3cm}
+      \centering
+      \includegraphics[width=6.3cm]{../results/low_pass_filter_gain_freq_plot(db_oct6)(time_constant0.03).png}
+      \caption{}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{6.3cm}
+    \centering
+    \includegraphics[width=6.3cm]{../results/low_pass_filter_gain_freq_plot(db_oct6)(time_constant0.1).png}
+    \caption{}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{6.3cm}
+  \centering
+  \includegraphics[width=6.3cm]{../results/low_pass_filter_gain_freq_plot(db_oct6)(time_constant0.3).png}
+  \caption{}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{6.3cm}
+  \centering
+  \includegraphics[width=6.3cm]{../results/low_pass_filter_gain_freq_plot(db_oct12)(time_constant0.03).png}
+  \caption{}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{6.3cm}
+  \centering
+  \includegraphics[width=6.3cm]{../results/low_pass_filter_gain_freq_plot(db_oct12)(time_constant0.1).png}
+  \caption{}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{6.3cm}
+  \centering
+  \includegraphics[width=6.3cm]{../results/low_pass_filter_gain_freq_plot(db_oct12)(time_constant0.3).png}
+  \caption{}
+\end{subfigure}
+\hfill
+  \caption{The low pass filter gain results ($20 \log G$) of dB/Oct 6, time constant (a) 0.03 (b) 0.1 (c) 0.3, dB/Oct 12, time constant (d)0.03, (e) 0.1, (f) 0.3 [$s$], in the function of $log(f)$, the black dot.
+    The blue line is the $-3dB$ line and the red line is the fitted results, following equation (\ref{equation: LPF fitting function}).}
+  \label{fig: LPF plot}
+\end{figure}
+
 
 \subsection{Lock-In Amplifier: Noise detection}
 \label{results: noise detection}
