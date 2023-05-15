@@ -2,6 +2,7 @@ import lock_in_data
 import pandas as pd
 import pickle
 from scipy.constants import pi as pi
+from scipy.constants import mu_0 as mu_0
 import numpy as np
 import warnings
 
@@ -128,6 +129,8 @@ for phase, Delta in zip([0,90,180,270],[150,50,-200,-300]):
     
     phaseshifter_phase_fig.savefig(f"./results/phaseshifter_phase_freq_plot(phase{phase}).png")
 
+
+
 experiment = 'Low-pass Amplifier'
 print(experiment)
 
@@ -165,6 +168,35 @@ for db_oct in [6,12]:
 
 
 
+experiment = 'Hall Effect'
+
+fixed_parameter={'time constant' : 0.1, 'dB/oct' : 12, 'phase' : 'pi', 'frequency':'20Hz'}
+gain = 2
+max_voltage = 45
+max_magnetic_field = 50
+
+def mf_fitting_function(
+    x, m
+):
+    return m/x**3 *2*mu_0/4/pi
+
+
+Hall_effect_fig = lock_in_data.phys_plot(
+    datum[experiment],
+    'distance(mm)',
+    lambda x: np.abs((x.results[2]+400)/gain/max_voltage*max_magnetic_field),
+    fixed_parameter,
+    x_label = "distance [mm]",
+    y_label = "magnetic field [mT]",
+    fmt = "ko",
+    fitting_function = mf_fitting_function,
+    p0 = [1],
+    print_param = True
+)
+
+Hall_effect_fig.savefig(f"./results/hall_effect_results_plot.png")
+
+
 # for data in datum[experiment]:
 #     data.print_data()
 #     data.full_image.save("./ERROR.PNG")
@@ -180,3 +212,122 @@ for db_oct in [6,12]:
 
 # with open("./datum.pkl", "wb") as f:
 #     pickle.dump(datum,f)
+
+
+
+index_label_file_name = "./LI_additional_picturename.xlsx"
+df = pd.read_excel(index_label_file_name, sheet_name= None)
+experiments = df.keys()
+datum2 = {experiment : [] for experiment in experiments}
+
+num_pic = 272
+
+try:
+    with open("datum2.pkl","rb") as f:
+        datum2 = pickle.load(f)
+
+except FileNotFoundError:
+    parameters = [{} for i in range(num_pic)]
+    data_labels = [{} for i in range(num_pic)]
+    experiment_labels = ["" for i in range(num_pic)]
+
+    print(experiments)
+    for experiment in experiments:
+        dataframe = lock_in_data.clean_dataframe(df[experiment])
+        column_dict = dataframe.columns
+        # clean up filled NaNs
+
+        for index in range(dataframe.shape[0]): #repeatly read for column numbers
+            parameter = {}
+            for column in column_dict:
+                if column == 'name':
+                    break
+                parameter[column]=dataframe.loc[index,column]
+            
+            pic_idx= dataframe.loc[index,'name']
+
+            if pic_idx >= num_pic:
+                break
+            
+            parameters[pic_idx]=parameter
+            experiment_labels[pic_idx] = experiment
+            if pic_idx in lock_in_data.exceptional_cases:
+                data_labels[pic_idx]=lock_in_data.exceptional_data_label
+                continue
+
+            data_labels[pic_idx]=lock_in_data.get_additional_data_labels(experiment)
+    
+
+
+    for index in range(0,num_pic):
+        print(f"reading {index} out of {num_pic}")
+        datum2[experiment_labels[index]].append(lock_in_data.lock_in_data(file_name = f"./additional_raw_data/TEK00{format(index, '03')}.PNG", data_label = data_labels[index] , parameter=parameters[index]))
+        datum2[experiment_labels[index]][-1].print_data()
+
+    with open("./datum2.pkl", "wb") as f:
+        pickle.dump(datum2,f)
+
+
+
+experiment = 'preamplifier'
+
+print(experiment)
+
+def frequency_parser(
+    freq_string
+):
+    try:
+        freq = float(freq_string)
+        return freq
+    except ValueError:
+        if 'Hz' in freq_string:
+            if  freq_string[-3]=='k':
+                return 1000*float(freq_string[0:-3])
+            if  freq_string[-3]=='M':
+                return 1000000*float(freq_string[0:-3])
+        else:
+            raise ValueError
+
+for gain in [1.0,2.0,5.0,10.0,20.0]:
+    print(gain)
+    preamplifier_log_fig = lock_in_data.phys_plot(
+            datum2[experiment],
+            'none',
+            lambda x : 20*np.log10(x.results[0]/x.results[1]),
+            {'gain' : gain},
+            x_label = "log(frequency)",
+            y_label = "$\Delta$dB",
+            fmt = "ko",
+            x_variable_function = lambda x: np.log10(frequency_parser(x.parameter['frequency'])),
+            additional_line = 20*np.log10(gain)-3,
+            fitting_function=lambda x,a,b: a*x+b,
+            p0=[1,1],
+            print_param=True,
+            dosing_y=20*np.log10(gain)-3,
+            dosing_x0=0.5,
+            fitting_region_condition_x = lambda x: True if x>5.5 else False
+        )
+    preamplifier_log_fig.savefig(f"./results/preamplifier_log_plot(gain{gain}).png")
+
+
+experiment = 'Noise-Phase'
+print(experiment)
+
+for S_N in ['off', '10^-5', '10^-4', '10^-3', '10^-2']:
+    print(S_N)
+    DBM_phase_fig = lock_in_data.phys_plot(
+        datum2[experiment],
+        'phase',
+        lambda x: x.results[1],
+        {'frequency' : '20Hz', 'dB/oct' : 12, 'time constant' : 0.03, 'noise-generator' : S_N},
+        x_label = "phase ($\degree$)",
+        y_label = "Lock-In signal ($mV$)",
+        fmt = "ko",
+        fitting_function = lambda x,a,b,c: a*(x-b)**2 +c,
+        p0 = [1,1,1],
+        print_param=True,
+        fitting_region_condition_x = lambda x: True if x<=100 else False,
+        error_bar_x = lambda x : 2
+    )
+
+    DBM_phase_fig.savefig(f"./results/lock_In_phase_plot(Noise{S_N}).png")

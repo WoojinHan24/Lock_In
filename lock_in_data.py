@@ -124,6 +124,19 @@ def get_data_labels(
     else:
         print("No experiment name" , experiment)
         return NameError
+    
+def get_additional_data_labels(
+    experiment
+):
+    if experiment == 'preamplifier':
+        return ["1_amplitude","2_amplitude","12_phase","21_phase"]
+    elif experiment == 'Noise-Phase':
+        return ["12_phase","3_max"]
+    elif experiment == 'DC-offset' :
+        return ["12_phase","3_max"]
+    else:
+        print("No experiment name" , experiment)
+        return NameError
 
 
 def phys_plot(
@@ -136,8 +149,11 @@ def phys_plot(
     fmt,
     x_variable_function='none',
     fitting_function = 'none',
+    fitting_region_condition_x = 'none',
+    fitting_region_condition_y = 'none',
     p0=0,
     additional_line = 'none',
+    error_bar_x = 'none',
     error_bar_y = 'none',
     print_param= False,
     dosing_y= 'none',
@@ -154,6 +170,7 @@ def phys_plot(
     #error bar mode : input of lambda function of stderr in data x.
     #print_param : to print regression results.\
     #dosing_y : find x value when fitting function results = dosing_y
+    #fitting_region_condition_x : fitting region constraint
 
     fig = plt.figure(figsize=(4,4))
     ax = fig.add_subplot(1,1,1)
@@ -175,26 +192,46 @@ def phys_plot(
 
             y_list.append(dep_variable_function(data))
 
+    
     x= np.array(x_list)
     y= np.array(y_list)
 
-    x_con=np.linspace(min(x_list),max(x_list),50)
+    
     if fitting_function != 'none':
-        param,_=get_regression_result(x_list,y_list,fitting_function,p0)
+        
+        x_fitting = []
+        y_fitting = []
+        if fitting_region_condition_x == 'none' and fitting_region_condition_y == 'none':
+            x_fitting = x_list
+            y_fitting = y_list
+        else:
+            for x_i,y_i in zip(x_list,y_list):
+                if fitting_region_condition_x =='none' or  fitting_region_condition_x(x_i)==True:
+                    if fitting_region_condition_y == 'none' or fitting_region_condition_y(y_i)==True:
+                        x_fitting.append(x_i)
+                        y_fitting.append(y_i)
+        
+        x_fitting=np.array(x_fitting)
+        y_fitting = np.array(y_fitting)
+
+        x_con=np.linspace(min(x_fitting),max(x_fitting),50)
+        param,param_cov=get_regression_result(x_fitting,y_fitting,fitting_function,p0)
         ax.plot(x_con,fitting_function(x_con,*param),'r-')
+
         if print_param == True:
-            print(param)
-            residuals = y - fitting_function(x,*param)
+            print(param,param_cov)
+            residuals = y_fitting - fitting_function(x_fitting,*param)
             ss_res = np.sum(residuals**2)
-            ss_tot = np.sum((y-np.mean(y))**2)
+            ss_tot = np.sum((y_fitting-np.mean(y_fitting))**2)
             print("R^2 = " ,1-ss_res/ss_tot)
 
         if dosing_y != 'none':
             print("dosing results: ",opt.fsolve(lambda x: fitting_function(x,*param)-dosing_y,dosing_x0))
 
 
-
+    
     if additional_line != 'none':
+        x_con=np.linspace(min(x_list),max(x_list),50)
         y_con = np.ones_like(x_con,dtype=np.float64)
         y_con= y_con*additional_line
         ax.plot(x_con,y_con,'b-')
@@ -204,6 +241,9 @@ def phys_plot(
     if error_bar_y != 'none':
         yerr = [error_bar_y(x_element) for x_element in x]
         plt.errorbar(x,y,yerr=yerr,fmt=fmt)
+    elif error_bar_x != 'none':
+        xerr = [error_bar_x(x_element) for x_element in x]
+        plt.errorbar(x,y,xerr=xerr,fmt=fmt)
     else:
         ax.plot(x,y,fmt)
     

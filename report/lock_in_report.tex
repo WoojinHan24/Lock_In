@@ -316,10 +316,11 @@ I have emphasized the modified circuit in each subsection.
  Each subsection is labeled just as same with subsection from \ref{methods: start} respectively.
  The total codes and raw data of each parameter are uploaded to GitHub.
  (\cite{github}, \url{https://github.com/WoojinHan24/Lock_In})
- The specific file name of each plot is also obtained in Fig. \ref{fig: file_appendix}.
+ The folder is grouped in \verb|raw_data|, \verb|additional_raw_data| which contain raw screenshots of the oscilloscope.
+ \verb|results| folder is for plots which appendix is obtained in Fig. \ref{fig: file_appendix}.
 
 \begin{figure}[H]
-    \begin{tabular}{  m{6.2cm} | m{7.7cm}  } 
+    \begin{tabular}{  m{6.2cm} | m{7.7cm} } 
 
       file name& details \\ 
       \hline
@@ -330,19 +331,22 @@ I have emphasized the modified circuit in each subsection.
       \hline
         preamplifier phase freq plot(gain x).png & preamplifier phase shift-frequency plot in displayed gain $x$\\
       \hline
+        preamplifier log plot (gain x).png & preamplifier log scaled figure for displayed gain $x$\\
+      \hline
         phase shifter gain freq plot(phase x).png & phase shifter gain-frequency plot in displayed phase shift $x$\\
       \hline
         phase shifter phase freq plot(phase x).png & phase shifter lagged phase-frequency plot in displayed phase shift $x$\\
       \hline
-        low pass filter gains freq plot(db oct x)(time constant y).png & low pass filter gain in dB - log frequency plot in displayed db/Oct $x$, time constant $y$
-        
+        low pass filter gains freq plot(db oct x)(time constant y).png & low pass filter gain in dB - log frequency plot in displayed db/Oct $x$, time constant $y$\\
+      \hline
+        lock-in phase plot(Noise x).png & lock-in detection results plots by phase in the signal-to-noise ratio $x$.
     \end{tabular}
     \caption{file appendix of \cite{github}}
     \label{fig: file_appendix}
 \end{figure}
 
 \subsection{Preamplifier}
- The output signal from the preamplifier is not uniformly amplified.
+ The output signal from the preamplifier is not uniformly amplified even in the short frequency range.
  The term gain($G$) means the real amplitude ratio between the input and the output signal.
  In each, (gain) $=$(output amplitude)$/$(input amplitude) in the unit of voltage.
  Fig. \ref{fig: preamplifier_gain_plot} shows the gain by frequency plot in different displayed gains for 2, 5, and 10.
@@ -352,10 +356,10 @@ I have emphasized the modified circuit in each subsection.
  Also, I found that the phase is shifted by the frequency increases which is not expected.
  Fig. \ref{fig: preamplifier_phase_plot} shows the regularity of the lagged phase in the output signal of the preamplifier.
  The preamplifier circuit must contain the transistor device, the phase and slew rate response are very weird to occur.
- Especially the detection amount is high enough to see the linear relationship between frequency and phase response.
+ A lot of points in this condition are measured, it is obvious that there is some linear relation between lagged phase and frequency.
 
 
- \begin{figure}[ht]
+ \begin{figure}[H]
     \begin{subfigure}[b]{4.3cm}
         \centering
         \includegraphics[width=4.3cm]{../results/preamplifier_gain_freq_plot(gain2).png}
@@ -379,7 +383,7 @@ I have emphasized the modified circuit in each subsection.
      }
     \label{fig: preamplifier_gain_plot}
   \end{figure}
-  \begin{figure}[ht]
+  \begin{figure}[H]
     \begin{subfigure}[b]{4.3cm}
         \centering
         \includegraphics[width=4.3cm]{../results/preamplifier_phase_freq_plot(gain2).png}
@@ -405,21 +409,77 @@ I have emphasized the modified circuit in each subsection.
   \end{figure}
 
   In the log scale experiment, the 3dB frequency can be found.
+  The amplified results of the frequency of $1kHz - 10MHz$ are measured, I measure several more points near 3dB frequencies.
+  Fig. \ref{fig: preamplifier_loglog_plot} shows the log scale plot near 3dB frequency.
+  The blue line represents the -3dB line, which highlights the -3dB position from the displayed gain.
+  The red line is linear regression results near -3dB frequency.
+  The specific linear regression coefficients and found -3dB frequency are listed in Fig. \ref{fig: preamplifier_statics}.
+  I can find that the -3dB frequency decreases as the gain increases, which means that the filter bandwidth gets worse by increasing the gain value.
+  Therefore, I use the gain value as 1 in the preamplifier module in the rest of the experiment.
+  Experimentally, the real gain fits well near 1$kHz$, and even the phase shift does not found.
+  But my experiment uses near 20 $Hz$ signal, the preamplifier gain and phase shift must be considered.
 
+
+\begin{figure}[H]
+    \begin{subfigure}[b]{4.3cm}
+        \centering
+        \includegraphics[width=4.3cm]{../results/preamplifier_log_plot(gain2.0).png}
+        \caption{}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{4.3cm}
+      \centering
+      \includegraphics[width=4.3cm]{../results/preamplifier_log_plot(gain5.0).png}
+      \caption{}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{4.3cm}
+    \centering
+    \includegraphics[width=4.3cm]{../results/preamplifier_log_plot(gain10.0).png}
+    \caption{}
+  \end{subfigure}
+  \hfill
+    \caption{Preamplifier $log(G)$ data for displayed gain (a) 2 (b) 5 (c) 10 in $\Delta dB$ - $log(f)$ (black dots),
+     its -3dB line is in the blue line.
+     The red line is linear regression results near -3dB frequency, the statics are given at \ref{fig: preamplifier_statics}.
+     The error bar is too small(under 1\%) to be neglected.
+     The $log(f)$ is in the frequency unit of [Hz]
+     }
+    \label{fig: preamplifier_loglog_plot}
+  \end{figure}
+
+  \begin{figure}[H]
+    \centering
+    \begin{tabular}{  m{2cm} | m{2.5cm} | m{2.5cm} | m{1cm}  | m{4cm}} 
+
+      gain& a [] & b []& $R^2$ &-3dB frequency [MHz]\\ 
+      \hline
+        2.0 & $-26 \pm 2$& $150 \pm 47$ & 0.945& $1.04 \pm 0.11$\\
+      \hline
+        5.0 & $-31 \pm 1 $& $192 \pm 21$ & 0.979& $0.759 \pm 0.073$\\
+      \hline
+        10.0 &$ -28 \pm 1 $& $179 \pm 20$ & 0.981 & $0.612 \pm 0.052$ \\
+
+    \end{tabular}
+    \caption{
+      The linear regression statics of Fig. \ref{fig: preamplifier_loglog_plot}.
+      The gain stands for displayed gain in the preamplifier.
+      Each coefficient is dimension-free since the plot x, and y-axis does not have one.
+    }  
+    \label{fig: preamplifier_statics}
+\end{figure}
 
 \subsection{Phase Shifter: Lagging phase detection}
 \label{results: phase shifter}
  The phase shifter also has an unexpected phase response.
  The displayed phase shift value is controlled by two dials.
  The first dial controls the phase in a unit of $90\degree$, and the secondary fine phase dial controls the accurate proportion to the first dial.
- For example, to shift $75\degree$ the phase dial set up to $0\degree$ and the fine phase should point out $75\degree$
+ For example, to shift $75\degree$ the phase dial is set up to $0\degree$ and the fine phase should point out $75\degree$.
  It is experimentally sure that in fixed frequency, the total rotation of a phase dial spans $360\degree$ phase shift.
  However, the lagged phase is too definite to ignore, having a linear relationship with frequency.
  Fig. \ref{fig: phaseshifter_phase_plot} shows the frequency dependant lagged phase results.
  The red lines are linear regression results and fit very well.
  Specific regression results are given in Fig. \ref{fig: phase shifter linear regression results}.
- The phase shifter is usually formed based on an RC circuit.
- Contrary expectation to the ideal operational amplifier in the core of the circuit, the operational amplifier may follow Shockley's equation to ruin the frequency-independent phase shift property.
  Also, the gain has changed in the response of the circuit.
  Fig. \ref{fig: phaseshifter_gain_plot} shows the frequency dependant gain results.
  In the ideal circuit, the gain should never change from 1.
@@ -433,10 +493,12 @@ I have emphasized the modified circuit in each subsection.
  This reasoning leads me to fix the circuit to directly measure the real shifted phase in the experiment.
  I don't use the linear regression results to convert the displayed phase into the real shifted phase but to put two of the signal directly in the oscilloscope.
  Secondly, the peaked nature of the gain-frequency plot means this phase shifter circuit contains RC and an operational amplifier module inside.
-
+ The phase shifter is usually formed based on an RC circuit.
+ Contrary expectation to the ideal operational amplifier in the core of the circuit, the operational amplifier may follow Shockley's equation to ruin the frequency-independent phase shift property.
+ There are no specific circuit diagrams revealed in \cite{signal_processor}, no more analysis is available.
 
  
- \begin{figure}[ht]
+ \begin{figure}[H]
     \begin{subfigure}[b]{3.1cm}
         \centering
         \includegraphics[width=3.1cm]{../results/phaseshifter_phase_freq_plot(phase0).png}
@@ -484,7 +546,7 @@ I have emphasized the modified circuit in each subsection.
     \label{fig: phase shifter linear regression results}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[H]
   \begin{subfigure}[b]{3.1cm}
       \centering
       \includegraphics[width=3.1cm]{../results/phaseshifter_gain_freq_plot(phase0).png}
@@ -520,7 +582,7 @@ I have emphasized the modified circuit in each subsection.
 As mentioned at \ref{results: phase shifter}, the yellow and purple results in Fig. \ref{fig: DBM_plot} are very effective.
 The phase difference between the two inputs is directly measured and intuitively matches the DBM results.
 The DBM filter works very fine but, the edgy cut at the end of the wavelength has been detected.
-It is because of the fluctuation of the frequencies between two inputs caused by the phase shifter, especially in low frequencies (10~100 Hz).
+It is because of the fluctuation of the frequencies between two inputs caused by the phase shifter, especially in low frequencies (10-100 [Hz]).
 But the area of those DBM results is about a few $\mu V \cdot s$, which means those edge effects can be neglectable in the calculation of Lock-In detection.
 
 \begin{figure}[ht]
@@ -558,7 +620,7 @@ But the area of those DBM results is about a few $\mu V \cdot s$, which means th
 The measurement error of voltage is about $1mV$, and the time interval must be calculated by $1/f$.
 For the null hypothesis, the DBM edge effect affects the Lock-In detection is rejected.
 The phase detection error is about $5 \degree$, by the fluctuation.
-The standard error of the area is $40 \mu V$.
+The standard error of the area is $40 \mu V \cdot s$.
 The experimental results are found around the standard error.
 
 
@@ -567,11 +629,11 @@ The experimental results are found around the standard error.
 \label{results: low pass filter}
 
  The low pass filter works with the impedance ratio of the input and output channels.
- An inductor does not help to amplify low-frequency signals, the fitting function is as follows.
- The roll-off factor is the term that after filtering area, the amount of amplitude decay by 1 octave.
+ An inductor does not help to amplify low-frequency signals, the fitting function is as follows equation \ref{equation: LPF fitting function}.
+ The roll-off factor (dB/Oct) is the term that after filtering area, the amount of amplitude decay by 1 octave.
  This means, the gradient in $\log(f) - 20\log(G)$ plot value can be modified by the circuit.
  Moreover, the noise from this filter is devastating to read accurate values in the oscilloscope.
- Fig. \ref{fig: raw_plot of LPF} is the oscilloscope screenshots of 20[$Hz$] signal input, $12 dB/oct$ roll-off and 0.03-time constant.
+ Fig. \ref{fig: raw_plot of LPF} is the oscilloscope screenshots of 20[$Hz$] signal input, $12 dB/oct$ roll-off and 0.03 [s]-time constant.
  To find a 3dB frequency, the measurement in high-frequency signal in low pass filter is unavoidable.
  But, the noise is not neglectable in high-frequency response, I read the median value in each data in the grid.
  Some of the data in high-frequency is even unreadable, so the measurement error is about 5dB.
@@ -584,22 +646,22 @@ The experimental results are found around the standard error.
  \end{figure}
 
  Fig. \ref{fig: LPF plot} shows the gain in dB to frequencies in log scale plots.
- The red line is the fitted line following \ref{equation: LPF fitting function}.
+ The red line is the fitted line following equation \ref{equation: LPF fitting function}.
  The blue line is a $-3dB$ line and the intersection point with the fitted line gives 3dB frequency, the useful parameter of the filter.
  The specific results of the fitting parameter are given in Fig. \ref{fig: LPF statics}.
  The gain value has a big measurement error and dominates the statics error.
  The measured time constant has a large difference from a displayed time constant, and it is because of the dB/Oct modification module.
- To modify dB/Oct in the low pass filter, the simple fitting function as \ref{equation: LPF fitting function} is invalid.
+ To modify dB/Oct in the low pass filter, the simple fitting function as equation \ref{equation: LPF fitting function} is invalid.
  The RC circuit must contain secondary propagation of an operational amplifier, which makes the fitting function more complex than before.
- But the fact is clear, the higher time constant, the lower dB/oct gives less 3dB frequency.
- The less 3dB frequency implies the sharp filtering performance of the low pass filter, I fixed these parameters in dB/Oct 12, time constant 0.03 [s] in other experimnets.
+ But the fact is clear and the higher time constant, the lower dB/Oct gives less 3dB frequency.
+ The less 3dB frequency implies the sharp filtering performance of the low pass filter, I fixed these parameters in dB/Oct 12, time constant of 0.03 [s] in other experiments.
 
  \begin{equation}
   G = \frac{1}{\sqrt{(2 \pi f \tau)^2 +1}}
   \label{equation: LPF fitting function}
  \end{equation}
 
- 
+
  \begin{figure}[H]
   \begin{tabular}{  m{3cm} | m{4cm} | m{1cm} | m{1cm} | m{3cm}  } 
 
@@ -612,7 +674,7 @@ The experimental results are found around the standard error.
        & 0.3& 0.96 & 0.88 & 0.16\\ \hline
     
   \end{tabular}
-  \caption{The linear regression statics of Fig. \ref{fig: phaseshifter_phase_plot}, std error of $tau$ and 3dB frequency are 0.03 [s], 0.2 [Hz] respectively.
+  \caption{The linear regression statics of Fig. \ref{fig: phaseshifter_phase_plot}, std error of $\tau$ and 3dB frequency are 0.03 [s], 0.2 [Hz] respectively.
   This error is from a measurement error, not a statistic error.}
   \label{fig: LPF statics}
 \end{figure}
@@ -662,6 +724,113 @@ The experimental results are found around the standard error.
 
 \subsection{Lock-In Amplifier: Noise detection}
 \label{results: noise detection}
+ The lock-in amplifier is stable with the noise in the signal.
+ To check this in experimental backgrounds, the two steps are carried out.
+ First, the Fast Fourier Transform (FFT) of the signal with noise is measured in Fig. \ref{fig: noise_fft}
+ As the signal-to-noise ratio (S/N) value increases, the FFT results get broadened from the frequency value of 0.
+ The data shows that the FFT results in a frequency $600 [kHz]$ have the same value regarding the S/N values.
+ This step checks the noise generator can make pure random noises.
+ If the noise is not pure enough, there must be a repeated amplitude by a certain time.
+ The certain time must leave its trace in FFT results at the high-frequency tail, which the experiment never showed.
+ Therefore, the noise is random enough to examine the lock-in detection stability.
+ The oscilloscope FFT results can only move its frequency in $200 [kHz]$ unit, I use $600 [kHz]$ signal frequency to check the randomness.
+ The assumption is used here that, the pureness of noise generator is not related to signal frequency a lot, which is a very valid assumption.
+
+ \begin{figure}[H]
+  \begin{subfigure}[b]{6.3cm}
+      \centering
+      \includegraphics[width=6.3cm]{../raw_data/TEK00528.PNG}
+      \caption{}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{6.3cm}
+    \centering
+    \includegraphics[width=6.3cm]{../raw_data/TEK00530.PNG}
+    \caption{}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{6.3cm}
+  \centering
+  \includegraphics[width=6.3cm]{../raw_data/TEK00532.PNG}
+  \caption{}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{6.3cm}
+  \centering
+  \includegraphics[width=6.3cm]{../raw_data/TEK00534.PNG}
+  \caption{}
+\end{subfigure}
+\hfill
+  \caption{FFT results in S/N ratio (a) 0 (b) $10^{-4}$ (c) $10^{-2}$ (d) $1$.
+    The base signal frequency is 600 [kHz], the signal attenuator value is 1, and the gain is set to 1 in the preamplifier.
+   }
+  \label{fig: noise_fft}
+\end{figure}
+
+ The second step of this experiment is to prove the lock-in detection stability of signal in differing S/N values.
+ I also make two input channels in the oscilloscope in reference signal and phase shifted signal to directly measure the phase difference.
+ Fig. \ref{fig: lock_in_phase_plot} is the plot of signal results by phase in different S/N values.
+ The plot and the data never change by the Noise amplitude, since the noise is never able to pass the lock-in detection filter.
+ Fig. \ref{fig: lock_in_phase_statics} is the statics of the fitting line in Fig. \ref{fig: lock_in_phase_plot}.
+ The fitting function is used a quadratic equation, $a(\phi - \phi_{max})^2 + V_0$, with high accuracy.
+ The maximum voltage occurs at the phase difference in $\phi_{max}$, its value is stable by the S/N values.
+ It is definite to be maximum at $\phi_{max}=0 \degree$, since the two coherent sine functions will give low-frequency signal high,
+ to be filtered after the low pass filter.
+ Through this experiment, it is proved that the random noise does not affect the lock-in signal at all.
+ 
+
+
+ \begin{figure}[H]
+  \begin{subfigure}[b]{6.3cm}
+      \centering
+      \includegraphics[width=6.3cm]{../results/lock_In_phase_plot(Noiseoff).png}
+      \caption{}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{6.3cm}
+    \centering
+    \includegraphics[width=6.3cm]{../results/lock_In_phase_plot(Noise10^-4).png}
+    \caption{}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{6.3cm}
+  \centering
+  \includegraphics[width=6.3cm]{../results/lock_In_phase_plot(Noise10^-3).png}
+  \caption{}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{6.3cm}
+  \centering
+  \includegraphics[width=6.3cm]{../results/lock_In_phase_plot(Noise10^-2).png}
+  \caption{}
+\end{subfigure}
+\hfill
+  \caption{Lock-In detection results in S/N ratio (a) 0 (b) $10^{-4}$ (c) $10^{-3}$ (d) $10^{-2}$.
+    The base signal frequency is 20 [Hz], the dB/Oct value is 12, and the time constant value is 0.03 [s].
+    S/N $10^{-5}$ plot is uploaded but not attached here.
+   }
+  \label{fig: lock_in_phase_plot}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \begin{tabular}{  m{1.5cm} | m{2cm} | m{5cm} | m{3cm} | m{1cm}  } 
+
+    S/N & $\phi_{max} [\degree]$ & a [$mV/\degree^2$]& $V_0$[$mV$] & $R^2$\\ \hline
+      0 & $-11 \pm 1$  & $(-7.35 \pm 0.01)\times 10^{-3}$ & $75 \pm 1$ & 0.979 \\ \hline
+      $10^{-5}$ & $-12 \pm 2$& $(-7.35 \pm 0.03) \times 10^{-3}$ & $75 \pm 2$ & 0.973\\ \hline
+      $10^{-4}$ & $-12 \pm 1$& $(-7.27 \pm 0.03) \times 10^{-3}$ & $74 \pm 2 $& 0.980 \\ \hline
+      $10^{-3}$ & $-12 \pm 1$ & $(-7.23 \pm 0.01) \times 10^{-3} $& $74 \pm 2$ & 0.977 \\ \hline
+      $10^{-2}$ & $-12 \pm 1$ & $(-7.4 \pm 0.1) \times 10^{-3}$ & $75 \pm 2$ & 0.980 \\ 
+    
+  \end{tabular}
+  \caption{
+    The quadratic regression results in Fig. \ref{fig: lock_in_phase_plot}, the red line.
+    $(signal) = a \times (\phi - \phi_{max})^2  + V_0$ is the specific definition of each parameter respectively.
+  }
+  \label{fig: lock_in_phase_statics}
+\end{figure}
+
 
 
 \subsection{Lock-In detection: DC offset stability}
