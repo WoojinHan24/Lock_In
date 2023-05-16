@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.3.23)  15 MAY 2023 21:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.3.23)  17 MAY 2023 01:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -415,298 +415,347 @@ Package gensymb Info: Using \textmu for \micro on input line 30.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 51.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 39.
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-) [1
+)
+<../results/DBM_intro_circuit.png, id=88, 468.24937pt x 197.98969pt>
+File: ../results/DBM_intro_circuit.png Graphic file (type png)
+<use ../results/DBM_intro_circuit.png>
+Package pdftex.def Info: ../results/DBM_intro_circuit.png  used on input line 68.
+(pdftex.def)             Requested size: 199.16928pt x 84.21548pt.
+ [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<../results/preamplifier_circuit.png, id=107, 728.7225pt x 377.91188pt>
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <../results/DBM_intro_circuit.png>] [2]
+<../results/preamplifier_circuit.png, id=132, 728.7225pt x 377.91188pt>
 File: ../results/preamplifier_circuit.png Graphic file (type png)
 <use ../results/preamplifier_circuit.png>
-Package pdftex.def Info: ../results/preamplifier_circuit.png  used on input line 117.
+Package pdftex.def Info: ../results/preamplifier_circuit.png  used on input line 160.
 (pdftex.def)             Requested size: 199.16928pt x 103.28313pt.
-<../raw_data/TEK00071.PNG, id=109, 481.8pt x 234.8775pt>
+<../raw_data/TEK00071.PNG, id=133, 481.8pt x 234.8775pt>
 File: ../raw_data/TEK00071.PNG Graphic file (type png)
 <use ../raw_data/TEK00071.PNG>
-Package pdftex.def Info: ../raw_data/TEK00071.PNG  used on input line 123.
+Package pdftex.def Info: ../raw_data/TEK00071.PNG  used on input line 166.
 (pdftex.def)             Requested size: 199.16928pt x 97.09244pt.
-<../results/phase_shifter_circuit.png, id=113, 589.4522pt x 194.97844pt>
+<../results/phase_shifter_circuit.png, id=137, 589.4522pt x 194.97844pt>
 File: ../results/phase_shifter_circuit.png Graphic file (type png)
 <use ../results/phase_shifter_circuit.png>
-Package pdftex.def Info: ../results/phase_shifter_circuit.png  used on input line 145.
+Package pdftex.def Info: ../results/phase_shifter_circuit.png  used on input line 188.
 (pdftex.def)             Requested size: 199.16928pt x 65.88121pt.
-<../raw_data/TEK00306.PNG, id=114, 481.8pt x 234.8775pt>
+<../raw_data/TEK00306.PNG, id=138, 481.8pt x 234.8775pt>
 File: ../raw_data/TEK00306.PNG Graphic file (type png)
 <use ../raw_data/TEK00306.PNG>
-Package pdftex.def Info: ../raw_data/TEK00306.PNG  used on input line 151.
+Package pdftex.def Info: ../raw_data/TEK00306.PNG  used on input line 194.
 (pdftex.def)             Requested size: 199.16928pt x 97.09244pt.
- [2 <../results/preamplifier_circuit.png> <../raw_data/TEK00071.PNG (PNG copy)>]
-<../results/DBM_circuit.png, id=128, 611.28375pt x 145.29282pt>
+ [3 <../results/preamplifier_circuit.png> <../raw_data/TEK00071.PNG (PNG copy)>]
+<../results/DBM_circuit.png, id=151, 611.28375pt x 145.29282pt>
 File: ../results/DBM_circuit.png Graphic file (type png)
 <use ../results/DBM_circuit.png>
-Package pdftex.def Info: ../results/DBM_circuit.png  used on input line 174.
+Package pdftex.def Info: ../results/DBM_circuit.png  used on input line 217.
 (pdftex.def)             Requested size: 199.16928pt x 47.33931pt.
-<../raw_data/TEK00396.PNG, id=129, 481.8pt x 234.8775pt>
+<../raw_data/TEK00396.PNG, id=152, 481.8pt x 234.8775pt>
 File: ../raw_data/TEK00396.PNG Graphic file (type png)
 <use ../raw_data/TEK00396.PNG>
-Package pdftex.def Info: ../raw_data/TEK00396.PNG  used on input line 180.
+Package pdftex.def Info: ../raw_data/TEK00396.PNG  used on input line 223.
 (pdftex.def)             Requested size: 199.16928pt x 97.09244pt.
- [3 <../results/phase_shifter_circuit.png> <../raw_data/TEK00306.PNG (PNG copy)> <../results/DBM_circuit.png> <../raw_data/TEK00396.PNG (PNG copy)>]
-<../results/low_pass_amplifier_circuit.png, id=142, 441.90094pt x 149.05687pt>
+<../results/low_pass_amplifier_circuit.png, id=157, 441.90094pt x 149.05687pt>
 File: ../results/low_pass_amplifier_circuit.png Graphic file (type png)
 <use ../results/low_pass_amplifier_circuit.png>
-Package pdftex.def Info: ../results/low_pass_amplifier_circuit.png  used on input line 207.
+Package pdftex.def Info: ../results/low_pass_amplifier_circuit.png  used on input line 250.
 (pdftex.def)             Requested size: 199.16928pt x 67.18185pt.
-<../raw_data/TEK00453.PNG, id=143, 481.8pt x 234.8775pt>
+<../raw_data/TEK00453.PNG, id=158, 481.8pt x 234.8775pt>
 File: ../raw_data/TEK00453.PNG Graphic file (type png)
 <use ../raw_data/TEK00453.PNG>
-Package pdftex.def Info: ../raw_data/TEK00453.PNG  used on input line 213.
+Package pdftex.def Info: ../raw_data/TEK00453.PNG  used on input line 256.
 (pdftex.def)             Requested size: 199.16928pt x 97.09244pt.
-<../results/noise_circuit.png, id=148, 441.14813pt x 132.495pt>
+ [4 <../results/phase_shifter_circuit.png> <../raw_data/TEK00306.PNG (PNG copy)> <../results/DBM_circuit.png> <../raw_data/TEK00396.PNG (PNG copy)>]
+<../results/noise_circuit.png, id=171, 441.14813pt x 132.495pt>
 File: ../results/noise_circuit.png Graphic file (type png)
 <use ../results/noise_circuit.png>
-Package pdftex.def Info: ../results/noise_circuit.png  used on input line 236.
+Package pdftex.def Info: ../results/noise_circuit.png  used on input line 279.
 (pdftex.def)             Requested size: 199.16928pt x 59.81828pt.
-<../results/noise_detection_circuit.png, id=149, 447.17062pt x 151.3153pt>
+<../results/noise_detection_circuit.png, id=172, 447.17062pt x 151.3153pt>
 File: ../results/noise_detection_circuit.png Graphic file (type png)
 <use ../results/noise_detection_circuit.png>
-Package pdftex.def Info: ../results/noise_detection_circuit.png  used on input line 242.
+Package pdftex.def Info: ../results/noise_detection_circuit.png  used on input line 285.
 (pdftex.def)             Requested size: 199.16928pt x 67.39627pt.
-<../results/DC_off_set_circuit.png, id=155, 443.40656pt x 145.29282pt>
+<../results/DC_off_set_circuit.png, id=178, 443.40656pt x 145.29282pt>
 File: ../results/DC_off_set_circuit.png Graphic file (type png)
 <use ../results/DC_off_set_circuit.png>
-Package pdftex.def Info: ../results/DC_off_set_circuit.png  used on input line 263.
+Package pdftex.def Info: ../results/DC_off_set_circuit.png  used on input line 306.
 (pdftex.def)             Requested size: 199.16928pt x 65.26366pt.
-<../raw_data/TEK00640.PNG, id=156, 481.8pt x 234.8775pt>
+<../raw_data/TEK00640.PNG, id=179, 481.8pt x 234.8775pt>
 File: ../raw_data/TEK00640.PNG Graphic file (type png)
 <use ../raw_data/TEK00640.PNG>
-Package pdftex.def Info: ../raw_data/TEK00640.PNG  used on input line 269.
+Package pdftex.def Info: ../raw_data/TEK00640.PNG  used on input line 312.
 (pdftex.def)             Requested size: 199.16928pt x 97.09244pt.
- [4 <../results/low_pass_amplifier_circuit.png> <../raw_data/TEK00453.PNG (PNG copy)> <../results/noise_circuit.png> <../results/noise_detection_circuit.png>]
-<../results/hall_sensor_circuit.png, id=170, 445.665pt x 201.00093pt>
+ [5 <../results/low_pass_amplifier_circuit.png> <../raw_data/TEK00453.PNG (PNG copy)> <../results/noise_circuit.png> <../results/noise_detection_circuit.png>]
+<../results/hall_sensor_circuit.png, id=192, 445.665pt x 201.00093pt>
 File: ../results/hall_sensor_circuit.png Graphic file (type png)
 <use ../results/hall_sensor_circuit.png>
-Package pdftex.def Info: ../results/hall_sensor_circuit.png  used on input line 292.
+Package pdftex.def Info: ../results/hall_sensor_circuit.png  used on input line 335.
 (pdftex.def)             Requested size: 199.16928pt x 89.82697pt.
-<../raw_data/TEK00697.PNG, id=171, 481.8pt x 234.8775pt>
+<../raw_data/TEK00697.PNG, id=193, 481.8pt x 234.8775pt>
 File: ../raw_data/TEK00697.PNG Graphic file (type png)
 <use ../raw_data/TEK00697.PNG>
-Package pdftex.def Info: ../raw_data/TEK00697.PNG  used on input line 298.
+Package pdftex.def Info: ../raw_data/TEK00697.PNG  used on input line 341.
 (pdftex.def)             Requested size: 199.16928pt x 97.09244pt.
 
-Underfull \hbox (badness 1565) in paragraph at lines 336--337
+Underfull \hbox (badness 1565) in paragraph at lines 379--380
 []|\T1/cmr/m/n/10 phase shifter gain-frequency plot in dis-played
  []
 
 
-Underfull \hbox (badness 4792) in paragraph at lines 338--338
+Underfull \hbox (badness 4792) in paragraph at lines 381--381
 []|\T1/cmr/m/n/10 phase shifter phase freq plot(phase
  []
 
-[5 <../results/DC_off_set_circuit.png> <../raw_data/TEK00640.PNG (PNG copy)> <../results/hall_sensor_circuit.png> <../raw_data/TEK00697.PNG (PNG copy)>]
-<../results/preamplifier_gain_freq_plot(gain2).png, id=197, 289.08pt x 289.08pt>
+[6 <../results/DC_off_set_circuit.png> <../raw_data/TEK00640.PNG (PNG copy)> <../results/hall_sensor_circuit.png> <../raw_data/TEK00697.PNG (PNG copy)>]
+<../results/preamplifier_gain_freq_plot(gain2).png, id=218, 289.08pt x 289.08pt>
 File: ../results/preamplifier_gain_freq_plot(gain2).png Graphic file (type png)
 <use ../results/preamplifier_gain_freq_plot(gain2).png>
-Package pdftex.def Info: ../results/preamplifier_gain_freq_plot(gain2).png  used on input line 365.
+Package pdftex.def Info: ../results/preamplifier_gain_freq_plot(gain2).png  used on input line 414.
 (pdftex.def)             Requested size: 122.34692pt x 122.34349pt.
-<../results/preamplifier_gain_freq_plot(gain5).png, id=198, 289.08pt x 289.08pt>
+<../results/preamplifier_gain_freq_plot(gain5).png, id=219, 289.08pt x 289.08pt>
 File: ../results/preamplifier_gain_freq_plot(gain5).png Graphic file (type png)
 <use ../results/preamplifier_gain_freq_plot(gain5).png>
-Package pdftex.def Info: ../results/preamplifier_gain_freq_plot(gain5).png  used on input line 371.
+Package pdftex.def Info: ../results/preamplifier_gain_freq_plot(gain5).png  used on input line 420.
 (pdftex.def)             Requested size: 122.34692pt x 122.34349pt.
-<../results/preamplifier_gain_freq_plot(gain10).png, id=199, 289.08pt x 289.08pt>
+<../results/preamplifier_gain_freq_plot(gain10).png, id=220, 289.08pt x 289.08pt>
 File: ../results/preamplifier_gain_freq_plot(gain10).png Graphic file (type png)
 <use ../results/preamplifier_gain_freq_plot(gain10).png>
-Package pdftex.def Info: ../results/preamplifier_gain_freq_plot(gain10).png  used on input line 377.
+Package pdftex.def Info: ../results/preamplifier_gain_freq_plot(gain10).png  used on input line 426.
 (pdftex.def)             Requested size: 122.34692pt x 122.34349pt.
-<../results/preamplifier_phase_freq_plot(gain2).png, id=200, 289.08pt x 289.08pt>
+<../results/preamplifier_phase_freq_plot(gain2).png, id=221, 289.08pt x 289.08pt>
 File: ../results/preamplifier_phase_freq_plot(gain2).png Graphic file (type png)
 <use ../results/preamplifier_phase_freq_plot(gain2).png>
-Package pdftex.def Info: ../results/preamplifier_phase_freq_plot(gain2).png  used on input line 389.
+Package pdftex.def Info: ../results/preamplifier_phase_freq_plot(gain2).png  used on input line 438.
 (pdftex.def)             Requested size: 122.34692pt x 122.34349pt.
-<../results/preamplifier_phase_freq_plot(gain5).png, id=201, 289.08pt x 289.08pt>
+<../results/preamplifier_phase_freq_plot(gain5).png, id=222, 289.08pt x 289.08pt>
 File: ../results/preamplifier_phase_freq_plot(gain5).png Graphic file (type png)
 <use ../results/preamplifier_phase_freq_plot(gain5).png>
-Package pdftex.def Info: ../results/preamplifier_phase_freq_plot(gain5).png  used on input line 395.
+Package pdftex.def Info: ../results/preamplifier_phase_freq_plot(gain5).png  used on input line 444.
 (pdftex.def)             Requested size: 122.34692pt x 122.34349pt.
-<../results/preamplifier_phase_freq_plot(gain10).png, id=202, 289.08pt x 289.08pt>
+<../results/preamplifier_phase_freq_plot(gain10).png, id=223, 289.08pt x 289.08pt>
 File: ../results/preamplifier_phase_freq_plot(gain10).png Graphic file (type png)
 <use ../results/preamplifier_phase_freq_plot(gain10).png>
-Package pdftex.def Info: ../results/preamplifier_phase_freq_plot(gain10).png  used on input line 401.
+Package pdftex.def Info: ../results/preamplifier_phase_freq_plot(gain10).png  used on input line 450.
 (pdftex.def)             Requested size: 122.34692pt x 122.34349pt.
- [6 <../results/preamplifier_gain_freq_plot(gain2).png> <../results/preamplifier_gain_freq_plot(gain5).png> <../results/preamplifier_gain_freq_plot(gain10).png>]
-<../results/preamplifier_log_plot(gain2.0).png, id=217, 289.08pt x 289.08pt>
+ [7 <../results/preamplifier_gain_freq_plot(gain2).png> <../results/preamplifier_gain_freq_plot(gain5).png> <../results/preamplifier_gain_freq_plot(gain10).png>]
+<../results/preamplifier_log_plot(gain2.0).png, id=236, 289.08pt x 289.08pt>
 File: ../results/preamplifier_log_plot(gain2.0).png Graphic file (type png)
 <use ../results/preamplifier_log_plot(gain2.0).png>
-Package pdftex.def Info: ../results/preamplifier_log_plot(gain2.0).png  used on input line 426.
+Package pdftex.def Info: ../results/preamplifier_log_plot(gain2.0).png  used on input line 475.
 (pdftex.def)             Requested size: 122.34692pt x 122.34349pt.
-<../results/preamplifier_log_plot(gain5.0).png, id=218, 289.08pt x 289.08pt>
+<../results/preamplifier_log_plot(gain5.0).png, id=237, 289.08pt x 289.08pt>
 File: ../results/preamplifier_log_plot(gain5.0).png Graphic file (type png)
 <use ../results/preamplifier_log_plot(gain5.0).png>
-Package pdftex.def Info: ../results/preamplifier_log_plot(gain5.0).png  used on input line 432.
+Package pdftex.def Info: ../results/preamplifier_log_plot(gain5.0).png  used on input line 481.
 (pdftex.def)             Requested size: 122.34692pt x 122.34349pt.
-<../results/preamplifier_log_plot(gain10.0).png, id=219, 289.08pt x 289.08pt>
+<../results/preamplifier_log_plot(gain10.0).png, id=238, 289.08pt x 289.08pt>
 File: ../results/preamplifier_log_plot(gain10.0).png Graphic file (type png)
 <use ../results/preamplifier_log_plot(gain10.0).png>
-Package pdftex.def Info: ../results/preamplifier_log_plot(gain10.0).png  used on input line 438.
+Package pdftex.def Info: ../results/preamplifier_log_plot(gain10.0).png  used on input line 487.
 (pdftex.def)             Requested size: 122.34692pt x 122.34349pt.
- [7 <../results/preamplifier_phase_freq_plot(gain2).png> <../results/preamplifier_phase_freq_plot(gain5).png> <../results/preamplifier_phase_freq_plot(gain10).png> <../results/preamplifier_log_plot(gain2.0).png> <../results/preamplifier_log_plot(gain5.0).png> <../results/preamplifier_log_plot(gain10.0).png>]
-<../results/phaseshifter_phase_freq_plot(phase0).png, id=242, 289.08pt x 289.08pt>
+ [8 <../results/preamplifier_phase_freq_plot(gain2).png> <../results/preamplifier_phase_freq_plot(gain5).png> <../results/preamplifier_phase_freq_plot(gain10).png> <../results/preamplifier_log_plot(gain2.0).png> <../results/preamplifier_log_plot(gain5.0).png> <../results/preamplifier_log_plot(gain10.0).png>]
+<../results/phaseshifter_phase_freq_plot(phase0).png, id=259, 289.08pt x 289.08pt>
 File: ../results/phaseshifter_phase_freq_plot(phase0).png Graphic file (type png)
 <use ../results/phaseshifter_phase_freq_plot(phase0).png>
-Package pdftex.def Info: ../results/phaseshifter_phase_freq_plot(phase0).png  used on input line 504.
+Package pdftex.def Info: ../results/phaseshifter_phase_freq_plot(phase0).png  used on input line 553.
 (pdftex.def)             Requested size: 88.2037pt x 88.20235pt.
-<../results/phaseshifter_phase_freq_plot(phase90).png, id=243, 289.08pt x 289.08pt>
+<../results/phaseshifter_phase_freq_plot(phase90).png, id=260, 289.08pt x 289.08pt>
 File: ../results/phaseshifter_phase_freq_plot(phase90).png Graphic file (type png)
 <use ../results/phaseshifter_phase_freq_plot(phase90).png>
-Package pdftex.def Info: ../results/phaseshifter_phase_freq_plot(phase90).png  used on input line 510.
+Package pdftex.def Info: ../results/phaseshifter_phase_freq_plot(phase90).png  used on input line 559.
 (pdftex.def)             Requested size: 88.2037pt x 88.20235pt.
-<../results/phaseshifter_phase_freq_plot(phase180).png, id=244, 289.08pt x 289.08pt>
+<../results/phaseshifter_phase_freq_plot(phase180).png, id=261, 289.08pt x 289.08pt>
 File: ../results/phaseshifter_phase_freq_plot(phase180).png Graphic file (type png)
 <use ../results/phaseshifter_phase_freq_plot(phase180).png>
-Package pdftex.def Info: ../results/phaseshifter_phase_freq_plot(phase180).png  used on input line 516.
+Package pdftex.def Info: ../results/phaseshifter_phase_freq_plot(phase180).png  used on input line 565.
 (pdftex.def)             Requested size: 88.2037pt x 88.20235pt.
-<../results/phaseshifter_phase_freq_plot(phase270).png, id=245, 289.08pt x 289.08pt>
+<../results/phaseshifter_phase_freq_plot(phase270).png, id=262, 289.08pt x 289.08pt>
 File: ../results/phaseshifter_phase_freq_plot(phase270).png Graphic file (type png)
 <use ../results/phaseshifter_phase_freq_plot(phase270).png>
-Package pdftex.def Info: ../results/phaseshifter_phase_freq_plot(phase270).png  used on input line 522.
+Package pdftex.def Info: ../results/phaseshifter_phase_freq_plot(phase270).png  used on input line 571.
 (pdftex.def)             Requested size: 88.2037pt x 88.20235pt.
-<../results/phaseshifter_gain_freq_plot(phase0).png, id=248, 289.08pt x 289.08pt>
+<../results/phaseshifter_gain_freq_plot(phase0).png, id=265, 289.08pt x 289.08pt>
 File: ../results/phaseshifter_gain_freq_plot(phase0).png Graphic file (type png)
 <use ../results/phaseshifter_gain_freq_plot(phase0).png>
-Package pdftex.def Info: ../results/phaseshifter_gain_freq_plot(phase0).png  used on input line 552.
+Package pdftex.def Info: ../results/phaseshifter_gain_freq_plot(phase0).png  used on input line 601.
 (pdftex.def)             Requested size: 88.2037pt x 88.20235pt.
-<../results/phaseshifter_gain_freq_plot(phase90).png, id=249, 289.08pt x 289.08pt>
+<../results/phaseshifter_gain_freq_plot(phase90).png, id=266, 289.08pt x 289.08pt>
 File: ../results/phaseshifter_gain_freq_plot(phase90).png Graphic file (type png)
 <use ../results/phaseshifter_gain_freq_plot(phase90).png>
-Package pdftex.def Info: ../results/phaseshifter_gain_freq_plot(phase90).png  used on input line 558.
+Package pdftex.def Info: ../results/phaseshifter_gain_freq_plot(phase90).png  used on input line 607.
 (pdftex.def)             Requested size: 88.2037pt x 88.20235pt.
-<../results/phaseshifter_gain_freq_plot(phase180).png, id=250, 289.08pt x 289.08pt>
+<../results/phaseshifter_gain_freq_plot(phase180).png, id=267, 289.08pt x 289.08pt>
 File: ../results/phaseshifter_gain_freq_plot(phase180).png Graphic file (type png)
 <use ../results/phaseshifter_gain_freq_plot(phase180).png>
-Package pdftex.def Info: ../results/phaseshifter_gain_freq_plot(phase180).png  used on input line 564.
+Package pdftex.def Info: ../results/phaseshifter_gain_freq_plot(phase180).png  used on input line 613.
 (pdftex.def)             Requested size: 88.2037pt x 88.20235pt.
-<../results/phaseshifter_gain_freq_plot(phase270).png, id=251, 289.08pt x 289.08pt>
+<../results/phaseshifter_gain_freq_plot(phase270).png, id=268, 289.08pt x 289.08pt>
 File: ../results/phaseshifter_gain_freq_plot(phase270).png Graphic file (type png)
 <use ../results/phaseshifter_gain_freq_plot(phase270).png>
-Package pdftex.def Info: ../results/phaseshifter_gain_freq_plot(phase270).png  used on input line 570.
+Package pdftex.def Info: ../results/phaseshifter_gain_freq_plot(phase270).png  used on input line 619.
 (pdftex.def)             Requested size: 88.2037pt x 88.20235pt.
- [8 <../results/phaseshifter_phase_freq_plot(phase0).png> <../results/phaseshifter_phase_freq_plot(phase90).png> <../results/phaseshifter_phase_freq_plot(phase180).png> <../results/phaseshifter_phase_freq_plot(phase270).png>]
-<../raw_data/TEK00355.PNG, id=265, 481.8pt x 234.8775pt>
+ [9 <../results/phaseshifter_phase_freq_plot(phase0).png> <../results/phaseshifter_phase_freq_plot(phase90).png> <../results/phaseshifter_phase_freq_plot(phase180).png> <../results/phaseshifter_phase_freq_plot(phase270).png>]
+<../raw_data/TEK00355.PNG, id=282, 481.8pt x 234.8775pt>
 File: ../raw_data/TEK00355.PNG Graphic file (type png)
 <use ../raw_data/TEK00355.PNG>
-Package pdftex.def Info: ../raw_data/TEK00355.PNG  used on input line 591.
+Package pdftex.def Info: ../raw_data/TEK00355.PNG  used on input line 640.
 (pdftex.def)             Requested size: 179.25244pt x 87.38356pt.
-<../raw_data/TEK00356.PNG, id=266, 481.8pt x 234.8775pt>
+<../raw_data/TEK00356.PNG, id=283, 481.8pt x 234.8775pt>
 File: ../raw_data/TEK00356.PNG Graphic file (type png)
 <use ../raw_data/TEK00356.PNG>
-Package pdftex.def Info: ../raw_data/TEK00356.PNG  used on input line 597.
+Package pdftex.def Info: ../raw_data/TEK00356.PNG  used on input line 646.
 (pdftex.def)             Requested size: 179.25244pt x 87.38356pt.
-<../raw_data/TEK00357.PNG, id=267, 481.8pt x 234.8775pt>
+<../raw_data/TEK00357.PNG, id=284, 481.8pt x 234.8775pt>
 File: ../raw_data/TEK00357.PNG Graphic file (type png)
 <use ../raw_data/TEK00357.PNG>
-Package pdftex.def Info: ../raw_data/TEK00357.PNG  used on input line 603.
+Package pdftex.def Info: ../raw_data/TEK00357.PNG  used on input line 652.
 (pdftex.def)             Requested size: 179.25244pt x 87.38356pt.
-<../raw_data/TEK00358.PNG, id=268, 481.8pt x 234.8775pt>
+<../raw_data/TEK00358.PNG, id=285, 481.8pt x 234.8775pt>
 File: ../raw_data/TEK00358.PNG Graphic file (type png)
 <use ../raw_data/TEK00358.PNG>
-Package pdftex.def Info: ../raw_data/TEK00358.PNG  used on input line 609.
+Package pdftex.def Info: ../raw_data/TEK00358.PNG  used on input line 658.
 (pdftex.def)             Requested size: 179.25244pt x 87.38356pt.
- [9 <../results/phaseshifter_gain_freq_plot(phase0).png> <../results/phaseshifter_gain_freq_plot(phase90).png> <../results/phaseshifter_gain_freq_plot(phase180).png> <../results/phaseshifter_gain_freq_plot(phase270).png> <../raw_data/TEK00355.PNG (PNG copy)> <../raw_data/TEK00356.PNG (PNG copy)> <../raw_data/TEK00357.PNG (PNG copy)> <../raw_data/TEK00358.PNG (PNG copy)>]
-<../raw_data/TEK00484.PNG, id=281, 481.8pt x 234.8775pt>
+ [10 <../results/phaseshifter_gain_freq_plot(phase0).png> <../results/phaseshifter_gain_freq_plot(phase90).png> <../results/phaseshifter_gain_freq_plot(phase180).png> <../results/phaseshifter_gain_freq_plot(phase270).png> <../raw_data/TEK00355.PNG (PNG copy)> <../raw_data/TEK00356.PNG (PNG copy)> <../raw_data/TEK00357.PNG (PNG copy)> <../raw_data/TEK00358.PNG (PNG copy)>]
+<../raw_data/TEK00484.PNG, id=298, 481.8pt x 234.8775pt>
 File: ../raw_data/TEK00484.PNG Graphic file (type png)
 <use ../raw_data/TEK00484.PNG>
-Package pdftex.def Info: ../raw_data/TEK00484.PNG  used on input line 643.
+Package pdftex.def Info: ../raw_data/TEK00484.PNG  used on input line 692.
 (pdftex.def)             Requested size: 170.71652pt x 83.22261pt.
-<../results/low_pass_filter_gain_freq_plot(db_oct6)(time_constant0.03).png, id=288, 289.08pt x 289.08pt>
+<../results/low_pass_filter_gain_freq_plot(db_oct6)(time_constant0.03).png, id=305, 289.08pt x 289.08pt>
 File: ../results/low_pass_filter_gain_freq_plot(db_oct6)(time_constant0.03).png Graphic file (type png)
 <use ../results/low_pass_filter_gain_freq_plot(db_oct6)(time_constant0.03).png>
-Package pdftex.def Info: ../results/low_pass_filter_gain_freq_plot(db_oct6)(time_constant0.03).png  used on input line 685.
+Package pdftex.def Info: ../results/low_pass_filter_gain_freq_plot(db_oct6)(time_constant0.03).png  used on input line 734.
 (pdftex.def)             Requested size: 179.25244pt x 179.24979pt.
-<../results/low_pass_filter_gain_freq_plot(db_oct6)(time_constant0.1).png, id=289, 289.08pt x 289.08pt>
+<../results/low_pass_filter_gain_freq_plot(db_oct6)(time_constant0.1).png, id=306, 289.08pt x 289.08pt>
 File: ../results/low_pass_filter_gain_freq_plot(db_oct6)(time_constant0.1).png Graphic file (type png)
 <use ../results/low_pass_filter_gain_freq_plot(db_oct6)(time_constant0.1).png>
-Package pdftex.def Info: ../results/low_pass_filter_gain_freq_plot(db_oct6)(time_constant0.1).png  used on input line 691.
+Package pdftex.def Info: ../results/low_pass_filter_gain_freq_plot(db_oct6)(time_constant0.1).png  used on input line 740.
 (pdftex.def)             Requested size: 179.25244pt x 179.24979pt.
-<../results/low_pass_filter_gain_freq_plot(db_oct6)(time_constant0.3).png, id=290, 289.08pt x 289.08pt>
+<../results/low_pass_filter_gain_freq_plot(db_oct6)(time_constant0.3).png, id=307, 289.08pt x 289.08pt>
 File: ../results/low_pass_filter_gain_freq_plot(db_oct6)(time_constant0.3).png Graphic file (type png)
 <use ../results/low_pass_filter_gain_freq_plot(db_oct6)(time_constant0.3).png>
-Package pdftex.def Info: ../results/low_pass_filter_gain_freq_plot(db_oct6)(time_constant0.3).png  used on input line 697.
+Package pdftex.def Info: ../results/low_pass_filter_gain_freq_plot(db_oct6)(time_constant0.3).png  used on input line 746.
 (pdftex.def)             Requested size: 179.25244pt x 179.24979pt.
-<../results/low_pass_filter_gain_freq_plot(db_oct12)(time_constant0.03).png, id=291, 289.08pt x 289.08pt>
+<../results/low_pass_filter_gain_freq_plot(db_oct12)(time_constant0.03).png, id=308, 289.08pt x 289.08pt>
 File: ../results/low_pass_filter_gain_freq_plot(db_oct12)(time_constant0.03).png Graphic file (type png)
 <use ../results/low_pass_filter_gain_freq_plot(db_oct12)(time_constant0.03).png>
-Package pdftex.def Info: ../results/low_pass_filter_gain_freq_plot(db_oct12)(time_constant0.03).png  used on input line 703.
+Package pdftex.def Info: ../results/low_pass_filter_gain_freq_plot(db_oct12)(time_constant0.03).png  used on input line 752.
 (pdftex.def)             Requested size: 179.25244pt x 179.24979pt.
-<../results/low_pass_filter_gain_freq_plot(db_oct12)(time_constant0.1).png, id=292, 289.08pt x 289.08pt>
+<../results/low_pass_filter_gain_freq_plot(db_oct12)(time_constant0.1).png, id=309, 289.08pt x 289.08pt>
 File: ../results/low_pass_filter_gain_freq_plot(db_oct12)(time_constant0.1).png Graphic file (type png)
 <use ../results/low_pass_filter_gain_freq_plot(db_oct12)(time_constant0.1).png>
-Package pdftex.def Info: ../results/low_pass_filter_gain_freq_plot(db_oct12)(time_constant0.1).png  used on input line 709.
+Package pdftex.def Info: ../results/low_pass_filter_gain_freq_plot(db_oct12)(time_constant0.1).png  used on input line 758.
 (pdftex.def)             Requested size: 179.25244pt x 179.24979pt.
-<../results/low_pass_filter_gain_freq_plot(db_oct12)(time_constant0.3).png, id=293, 289.08pt x 289.08pt>
+<../results/low_pass_filter_gain_freq_plot(db_oct12)(time_constant0.3).png, id=310, 289.08pt x 289.08pt>
 File: ../results/low_pass_filter_gain_freq_plot(db_oct12)(time_constant0.3).png Graphic file (type png)
 <use ../results/low_pass_filter_gain_freq_plot(db_oct12)(time_constant0.3).png>
-Package pdftex.def Info: ../results/low_pass_filter_gain_freq_plot(db_oct12)(time_constant0.3).png  used on input line 715.
+Package pdftex.def Info: ../results/low_pass_filter_gain_freq_plot(db_oct12)(time_constant0.3).png  used on input line 764.
 (pdftex.def)             Requested size: 179.25244pt x 179.24979pt.
- [10 <../raw_data/TEK00484.PNG (PNG copy)>] [11 <../results/low_pass_filter_gain_freq_plot(db_oct6)(time_constant0.03).png> <../results/low_pass_filter_gain_freq_plot(db_oct6)(time_constant0.1).png> <../results/low_pass_filter_gain_freq_plot(db_oct6)(time_constant0.3).png> <../results/low_pass_filter_gain_freq_plot(db_oct12)(time_constant0.03).png> <../results/low_pass_filter_gain_freq_plot(db_oct12)(time_constant0.1).png> <../results/low_pass_filter_gain_freq_plot(db_oct12)(time_constant0.3).png>]
-<../raw_data/TEK00528.PNG, id=315, 481.8pt x 234.8775pt>
+ [11 <../raw_data/TEK00484.PNG (PNG copy)>] [12 <../results/low_pass_filter_gain_freq_plot(db_oct6)(time_constant0.03).png> <../results/low_pass_filter_gain_freq_plot(db_oct6)(time_constant0.1).png> <../results/low_pass_filter_gain_freq_plot(db_oct6)(time_constant0.3).png> <../results/low_pass_filter_gain_freq_plot(db_oct12)(time_constant0.03).png> <../results/low_pass_filter_gain_freq_plot(db_oct12)(time_constant0.1).png> <../results/low_pass_filter_gain_freq_plot(db_oct12)(time_constant0.3).png>]
+<../raw_data/TEK00528.PNG, id=332, 481.8pt x 234.8775pt>
 File: ../raw_data/TEK00528.PNG Graphic file (type png)
 <use ../raw_data/TEK00528.PNG>
-Package pdftex.def Info: ../raw_data/TEK00528.PNG  used on input line 742.
+Package pdftex.def Info: ../raw_data/TEK00528.PNG  used on input line 791.
 (pdftex.def)             Requested size: 179.25244pt x 87.38356pt.
-<../raw_data/TEK00530.PNG, id=316, 481.8pt x 234.8775pt>
+<../raw_data/TEK00530.PNG, id=333, 481.8pt x 234.8775pt>
 File: ../raw_data/TEK00530.PNG Graphic file (type png)
 <use ../raw_data/TEK00530.PNG>
-Package pdftex.def Info: ../raw_data/TEK00530.PNG  used on input line 748.
+Package pdftex.def Info: ../raw_data/TEK00530.PNG  used on input line 797.
 (pdftex.def)             Requested size: 179.25244pt x 87.38356pt.
-<../raw_data/TEK00532.PNG, id=317, 481.8pt x 234.8775pt>
+<../raw_data/TEK00532.PNG, id=334, 481.8pt x 234.8775pt>
 File: ../raw_data/TEK00532.PNG Graphic file (type png)
 <use ../raw_data/TEK00532.PNG>
-Package pdftex.def Info: ../raw_data/TEK00532.PNG  used on input line 754.
+Package pdftex.def Info: ../raw_data/TEK00532.PNG  used on input line 803.
 (pdftex.def)             Requested size: 179.25244pt x 87.38356pt.
-<../raw_data/TEK00534.PNG, id=318, 481.8pt x 234.8775pt>
+<../raw_data/TEK00534.PNG, id=335, 481.8pt x 234.8775pt>
 File: ../raw_data/TEK00534.PNG Graphic file (type png)
 <use ../raw_data/TEK00534.PNG>
-Package pdftex.def Info: ../raw_data/TEK00534.PNG  used on input line 760.
+Package pdftex.def Info: ../raw_data/TEK00534.PNG  used on input line 809.
 (pdftex.def)             Requested size: 179.25244pt x 87.38356pt.
-<../results/lock_In_phase_plot(Noiseoff).png, id=322, 289.08pt x 289.08pt>
+<../results/lock_In_phase_plot(Noiseoff).png, id=340, 289.08pt x 289.08pt>
 File: ../results/lock_In_phase_plot(Noiseoff).png Graphic file (type png)
 <use ../results/lock_In_phase_plot(Noiseoff).png>
-Package pdftex.def Info: ../results/lock_In_phase_plot(Noiseoff).png  used on input line 786.
+Package pdftex.def Info: ../results/lock_In_phase_plot(Noiseoff).png  used on input line 837.
 (pdftex.def)             Requested size: 179.25244pt x 179.24979pt.
-<../results/lock_In_phase_plot(Noise10^-4).png, id=323, 289.08pt x 289.08pt>
+<../results/lock_In_phase_plot(Noise10^-4).png, id=341, 289.08pt x 289.08pt>
 File: ../results/lock_In_phase_plot(Noise10^-4).png Graphic file (type png)
 <use ../results/lock_In_phase_plot(Noise10^-4).png>
-Package pdftex.def Info: ../results/lock_In_phase_plot(Noise10^-4).png  used on input line 792.
+Package pdftex.def Info: ../results/lock_In_phase_plot(Noise10^-4).png  used on input line 843.
 (pdftex.def)             Requested size: 179.25244pt x 179.24979pt.
-<../results/lock_In_phase_plot(Noise10^-3).png, id=324, 289.08pt x 289.08pt>
+<../results/lock_In_phase_plot(Noise10^-3).png, id=342, 289.08pt x 289.08pt>
 File: ../results/lock_In_phase_plot(Noise10^-3).png Graphic file (type png)
 <use ../results/lock_In_phase_plot(Noise10^-3).png>
-Package pdftex.def Info: ../results/lock_In_phase_plot(Noise10^-3).png  used on input line 798.
+Package pdftex.def Info: ../results/lock_In_phase_plot(Noise10^-3).png  used on input line 849.
 (pdftex.def)             Requested size: 179.25244pt x 179.24979pt.
-<../results/lock_In_phase_plot(Noise10^-2).png, id=325, 289.08pt x 289.08pt>
+<../results/lock_In_phase_plot(Noise10^-2).png, id=343, 289.08pt x 289.08pt>
 File: ../results/lock_In_phase_plot(Noise10^-2).png Graphic file (type png)
 <use ../results/lock_In_phase_plot(Noise10^-2).png>
-Package pdftex.def Info: ../results/lock_In_phase_plot(Noise10^-2).png  used on input line 804.
+Package pdftex.def Info: ../results/lock_In_phase_plot(Noise10^-2).png  used on input line 855.
 (pdftex.def)             Requested size: 179.25244pt x 179.24979pt.
- [12 <../raw_data/TEK00528.PNG (PNG copy)> <../raw_data/TEK00530.PNG (PNG copy)> <../raw_data/TEK00532.PNG (PNG copy)> <../raw_data/TEK00534.PNG (PNG copy)>] (./lock_in_report.bbl [13 <../results/lock_In_phase_plot(Noiseoff).png> <../results/lock_In_phase_plot(Noise10^-4).png> <../results/lock_In_phase_plot(Noise10^-3).png> <../results/lock_In_phase_plot(Noise10^-2).png>]) [14] (./lock_in_report.aux)
+ [13 <../raw_data/TEK00528.PNG (PNG copy)> <../raw_data/TEK00530.PNG (PNG copy)> <../raw_data/TEK00532.PNG (PNG copy)> <../raw_data/TEK00534.PNG (PNG copy)>] [14 <../results/lock_In_phase_plot(Noiseoff).png> <../results/lock_In_phase_plot(Noise10^-4).png> <../results/lock_In_phase_plot(Noise10^-3).png> <../results/lock_In_phase_plot(Noise10^-2).png>]
+<../additional_raw_data/TEK00250.png, id=365, 481.8pt x 234.8775pt>
+File: ../additional_raw_data/TEK00250.png Graphic file (type png)
+<use ../additional_raw_data/TEK00250.png>
+Package pdftex.def Info: ../additional_raw_data/TEK00250.png  used on input line 913.
+(pdftex.def)             Requested size: 179.25244pt x 87.38356pt.
+<../additional_raw_data/TEK00254.png, id=366, 481.8pt x 234.8775pt>
+File: ../additional_raw_data/TEK00254.png Graphic file (type png)
+<use ../additional_raw_data/TEK00254.png>
+Package pdftex.def Info: ../additional_raw_data/TEK00254.png  used on input line 919.
+(pdftex.def)             Requested size: 179.25244pt x 87.38356pt.
+<../additional_raw_data/TEK00261.png, id=367, 481.8pt x 234.8775pt>
+File: ../additional_raw_data/TEK00261.png Graphic file (type png)
+<use ../additional_raw_data/TEK00261.png>
+Package pdftex.def Info: ../additional_raw_data/TEK00261.png  used on input line 925.
+(pdftex.def)             Requested size: 179.25244pt x 87.38356pt.
+<../additional_raw_data/TEK00266.png, id=368, 481.8pt x 234.8775pt>
+File: ../additional_raw_data/TEK00266.png Graphic file (type png)
+<use ../additional_raw_data/TEK00266.png>
+Package pdftex.def Info: ../additional_raw_data/TEK00266.png  used on input line 931.
+(pdftex.def)             Requested size: 179.25244pt x 87.38356pt.
+<../results/lock_in_dc_stability.png, id=369, 289.08pt x 289.08pt>
+File: ../results/lock_in_dc_stability.png Graphic file (type png)
+<use ../results/lock_in_dc_stability.png>
+Package pdftex.def Info: ../results/lock_in_dc_stability.png  used on input line 943.
+(pdftex.def)             Requested size: 179.25244pt x 179.24979pt.
+ [15 <../additional_raw_data/TEK00250.PNG (PNG copy)> <../additional_raw_data/TEK00254.PNG (PNG copy)> <../additional_raw_data/TEK00261.PNG (PNG copy)> <../additional_raw_data/TEK00266.PNG (PNG copy)>]
+<../results/hall_sensor_character.png, id=380, 293.59688pt x 236.38312pt>
+File: ../results/hall_sensor_character.png Graphic file (type png)
+<use ../results/hall_sensor_character.png>
+Package pdftex.def Info: ../results/hall_sensor_character.png  used on input line 967.
+(pdftex.def)             Requested size: 221.93158pt x 178.68277pt.
+<../results/hall_effect_results_log_plot.png, id=381, 289.08pt x 289.08pt>
+File: ../results/hall_effect_results_log_plot.png Graphic file (type png)
+<use ../results/hall_effect_results_log_plot.png>
+Package pdftex.def Info: ../results/hall_effect_results_log_plot.png  used on input line 972.
+(pdftex.def)             Requested size: 179.25244pt x 179.24979pt.
+ [16 <../results/lock_in_dc_stability.png> <../results/hall_sensor_character.png> <../results/hall_effect_results_log_plot.png>]
+<../results/hall_sensor_plot.png, id=396, 289.08pt x 289.08pt>
+File: ../results/hall_sensor_plot.png Graphic file (type png)
+<use ../results/hall_sensor_plot.png>
+Package pdftex.def Info: ../results/hall_sensor_plot.png  used on input line 996.
+(pdftex.def)             Requested size: 179.25244pt x 179.24979pt.
+ (./lock_in_report.bbl [17 <../results/hall_sensor_plot.png>]) [18] (./lock_in_report.aux)
 Package rerunfilecheck Info: File `lock_in_report.out' has not changed.
 (rerunfilecheck)             Checksum: 67B8D7A745307A13CD2BEBF2E260B6C5;3450.
  ) 
 Here is how much of TeX's memory you used:
- 13127 strings out of 478287
- 219698 string characters out of 5849289
- 508814 words of memory out of 5000000
- 31035 multiletter control sequences out of 15000+600000
- 483158 words of font info for 59 fonts, out of 8000000 for 9000
+ 13219 strings out of 478287
+ 222486 string characters out of 5849289
+ 509787 words of memory out of 5000000
+ 31102 multiletter control sequences out of 15000+600000
+ 484945 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,12n,63p,656b,498s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on lock_in_report.pdf (14 pages, 956342 bytes).
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb>
+Output written on lock_in_report.pdf (18 pages, 1170004 bytes).
 PDF statistics:
- 444 PDF objects out of 1000 (max. 8388607)
- 291 compressed objects within 3 object streams
- 64 named destinations out of 1000 (max. 500000)
- 411 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 527 PDF objects out of 1000 (max. 8388607)
+ 342 compressed objects within 4 object streams
+ 73 named destinations out of 1000 (max. 500000)
+ 456 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -29,20 +29,63 @@
 
 \begin{document}
 
-\title{Lock In}
+\title{Lock In Amplifier and Hall effect}
 \author[1]{Woojin Han}
 \affil[1]{Seoul National University, Seoul 151-747, Korea}
 \maketitle
 
 \begin{abstract}
-    In this experiment,
+    In this experiment, the signal processing modules are measured and tested.
+    The python module \verb|lock_in_data| is made and uploaded which helps to read image files from the oscilloscope and organize to plot easily.
+    The lock-in amplifier circuit is improved in the phase shift measurement, and the higher accuracy of signal processing is performed.
+    The two input in the double-balanced mixer is also plotted in the oscilloscope, to measure the phase difference directly.
+    In this method, the gain in phase plot and the lock-in amplifier results have a low measurement error of $0.1 [mV]$
+    The short-range peak nature of the preamplifier module is claimed and the log scale plot is provided.
+    Therefore, the magnetic dipole moment density of the magnet is accurately measured in $M = (3.3 \pm 0.1) \times 10^{16} [A/m]$, highly improved than seniority results.
 \end{abstract}
 
 \section{Introduction}
+ The electric signals have unavoidable noise and offsets.
+ By now, many apparatus gives electric outputs which are not free from these restraints.
+ Therefore signal processing like a lock-in amplifier is important.
+ In this report, the Lock-in amplifier and its module are experimented with different signal frequencies and conditions.
+ But, the lock-in detection had critical issues in phase measurement.
+ I improved the circuit to directly measure the phase difference. \ref{methods: start}
+ Also, I make the python module that can help analysis in lock-in amplifier and other experiments, explained in \ref{intro: python_module} and uploaded in \cite{github}.
+ Finally, the detection is used to measure the magnetic dipole moment by the hall sensor.
 
 \subsection{Lock In detection}
 \label{intro: lock_in_detection}
+ Lock-in detection is the experiment to measure the subtle signal distinct to a noise or a direct current(DC) offset.
+ Mostly the lock-in detection uses Double Balance Mixer(DBM) circuit.
+ DBM circuit is shown schematical in Fig. \ref{fig: DBM_intro}.
+ The circuit has two inputs, the signal input($V_{in}$) and the reference input($V_{ref}$).
+ By the diodes in the circuit, the output voltage only depends on the sign of the reference input.
+ In each, the output of this circuit is $V_{in} \times sgn(V_{ref})$ for $sgn$ a sign function.
+
+ \begin{figure}[H]
+  \centering
+  \includegraphics[width=7cm]{../results/DBM_intro_circuit.png}
+  \caption{The abstract circuit of DBM, adapted by \cite{manual}}
+  \label{fig: DBM_intro}
+ \end{figure}
+
+ Then, the output signal passes the low-pass filter.
+ The low-pass filter is formed in resistance and capacitor to only filter out the low-frequency signal.
+ The filtering bandwidth is the parameter of the frequency area that can only pass by.
+ For a sufficiently good low-pass filter, the filtered signal can be used as the DC signal.
+ To explain the lock-in amplifier circuit, two cases can be exampled.
+ If the reference input has a different frequency than the signal input in the DBM circuit, the output results do not have periodicity.
+ The low-pass filter can be expected to make the signal in DC, it performs to average the input signal in time.
+ Therefore, the signal of different frequencies vanishes in the output of the low-pass filter.
+ The term different is calculated near the filtering bandwidth, by the definition.
+ If the reference input and the signal have the same frequency, the signal input does not vanish by the low-pass filter.
+ In each, the DC output from the low-pass filter is given by $V_0 \cos \phi$, $V_0$ is the signal input and $\phi$ is the phase difference between two signals.
+ So, the absolute amplitude of the output signal takes its maximum in phase difference $0, 180 \degree$.
+
+
 \subsection{Data Analysis Module}
+\label{intro: python_module}
  While performing a Lock-In experiment, detected oscilloscope results can be returned in the form of \textbf{.csv} or \textbf{.png} files.
  However, there are too many time points in each \textbf{.csv} file, it is recommended to read the oscilloscope screen for each detection.
  Also, each experiment has various parameters controlled by each panel so the modification of each data takes complicated forms.
@@ -198,7 +241,7 @@ I have emphasized the modified circuit in each subsection.
 
 \subsection{Low-Pass Amplifier}
  The direct current offset is filtered by the low-pass amplifier.
- The amplifier has three parameters of $dB/oct$ and the time constant of the LC circuit.
+ The amplifier has three parameters of $dB/oct$ and the time constant of the RC circuit.
 
  \begin{figure}[ht]
     \centering
@@ -256,7 +299,7 @@ I have emphasized the modified circuit in each subsection.
 \subsection{Lock-In detection: DC offset stability}
  To find a drift slope of a DC offset, the experiment is performed by the following circuit.
  Also, in this experiment the phase difference is fixed up to $\pi$, the circuit contains two more channels of reference and phase-shifted reference signal.
- \begin{figure}[ht]
+ \begin{figure}[H]
     \centering
     \begin{subfigure}[b]{7cm}
         \centering
@@ -339,7 +382,13 @@ I have emphasized the modified circuit in each subsection.
       \hline
         low pass filter gains freq plot(db oct x)(time constant y).png & low pass filter gain in dB - log frequency plot in displayed db/Oct $x$, time constant $y$\\
       \hline
-        lock-in phase plot(Noise x).png & lock-in detection results plots by phase in the signal-to-noise ratio $x$.
+        lock-in phase plot(Noise x).png & lock-in detection results plots by phase in the signal-to-noise ratio $x$.\\
+      \hline
+        lock in dc stability.png & lock-in detection results plot by DC offset.\\
+      \hline
+        hall effect results log plot.png & log scale plot of hall sensor measurement.\\
+      \hline
+        hall sensor plot.png & magnetic field plot in distance between the magnet and the sensor.
     \end{tabular}
     \caption{file appendix of \cite{github}}
     \label{fig: file_appendix}
@@ -777,7 +826,9 @@ The experimental results are found around the standard error.
  It is definite to be maximum at $\phi_{max}=0 \degree$, since the two coherent sine functions will give low-frequency signal high,
  to be filtered after the low pass filter.
  Through this experiment, it is proved that the random noise does not affect the lock-in signal at all.
- 
+ As the hall element signal is too low, the noise stability of detection is important.
+ And also, if the element has a phase response, the DC-offset can reveal, which is natural but not pure noise perturbation.
+ Therefore, the DC-offset stability is checked either at \ref{results: dc_offset}.
 
 
  \begin{figure}[H]
@@ -832,18 +883,135 @@ The experimental results are found around the standard error.
 \end{figure}
 
 
-
 \subsection{Lock-In detection: DC offset stability}
+\label{results: dc_offset}
+ The DC offset should be added only in the signal input.
+ The phase-shifted reference input of the DBM circuit should never be affected.
+ I use the preamplifier DC setting to add DC offset from the outer DC supply.
+ But, the outer DC supply is not good enough to measure the DC input voltage in units of $10mV$.
+ Also, the DC supply has a lot of noise signals, which might affect the result to assure stability.
+ I assume that the DC supply noise is quite random so that it doesn't affect the lock-in detection results as proved at \ref{results: noise detection}.
+ Moreover, it is fine not to read DC offset value in more accurate units only to prove its stability.
 
+ Fig. \ref{fig: dc_offset_rawdata} shows the oscilloscope screenshots of a DC offset experiment.
+ It should be noted that the axial graduation of the oscilloscope is modified appropriately to visualize three signals simultaneously.
+ But the measurement noted below in the picture has a question mark at the end of the number.
+ It is because of the noise from the DC supply, which is assumed as purely random noise.
+ Therefore, the noise can not change the phase of the signal, the phase difference is checked at the beginning of the experiment.
+ The visual check of the waveform also proves the assumption.
+ Surely, two signals have a phase difference of $0\degree$, directly measured.
+
+ Fig. \ref{fig: dc_offset_results} is the results of the lock-in signal in the various values of DC-offset value.
+ The y-axis is enlarged enough, but the oscilloscope only detects the maximum value of the signal in units of $1mV$, the difference can not be found.
+ Some values are not the same as others, but they can be disregarded since the signal input has an amplitude of $100mV$ which is very large to $2mV$, the deviation of the lock-in results.
+ Through this experiment, the stability of the lock-in detection module to the DC-noise is proved.
+
+
+ \begin{figure}[H]
+  \begin{subfigure}[b]{6.3cm}
+      \centering
+      \includegraphics[width=6.3cm]{../additional_raw_data/TEK00250.png}
+      \caption{}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{6.3cm}
+    \centering
+    \includegraphics[width=6.3cm]{../additional_raw_data/TEK00254.png}
+    \caption{}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{6.3cm}
+  \centering
+  \includegraphics[width=6.3cm]{../additional_raw_data/TEK00261.png}
+  \caption{}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{6.3cm}
+  \centering
+  \includegraphics[width=6.3cm]{../additional_raw_data/TEK00266.png}
+  \caption{}
+\end{subfigure}
+\hfill
+  \caption{Lock-In detection results in different DC offset (a) 100\% (b) 500\% (c) 1000\% (d) 1500\% in phase difference $0\degree$.
+    The base signal frequency is 20 [Hz], the dB/Oct value is 12, and the time constant value is 0.03 [s].
+   }
+   \label{fig: dc_offset_rawdata}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=6.3cm]{../results/lock_in_dc_stability.png}
+  \caption{Lock-In detection results in a plot of DC offset ratio. the blue line is not fitting.
+  }
+  \label{fig: dc_offset_results}
+\end{figure}
 
 
 \subsection{Lock-In detection: Hall effect}
+In the application of lock-in detection, the hall sensor from (\cite{hall_sensor}) is used to measure the magnetic dipole moment of the magnet.
+To check whether the magnet acts like a magnetic dipole, a log axis plot is required.
+In the equation of the magnetic field, I assumed the magnetic field is linear to the hall voltage by specification manual by (\cite{hall_sensor}).
+Fig. \ref{fig: hall_effect_log_results}(a) is the adapted plot of hall voltage from the manual.
+Therefore, the $B = B_max /V_max V$ equation is used in the first figure.
+Fig. \ref{fig: hall_effect_log_results}(b) is the log scale plots in units of $[mm]$ and $[mT]$ each.
+Linear regression has been applied in the signals that have distinct differences with default signal results.
+The regression inclination of $log (B) = a log (d) + b$ equation is $a=-0.96 \pm 0.025$, which is very different from the theoretical value $-3$.
+The distance between the magnet and the hall sensor is accurate in units of $0.1 [mm]$ since I put a magnet on the wooden stick at a perpendicular angle with a plastic ruler to attach its $0$ in the hall sensor.
+The lock-in results are also very accurate in stability proved in different experiments.
+So, I am not able to claim the magnet is acting as a point dipole.
 
+
+\begin{figure}[H]
+  \begin{subfigure}[b]{7.8cm}
+    \centering
+    \includegraphics[width=7.8cm]{../results/hall_sensor_character.png}
+    \caption{}
+\end{subfigure}
+  \begin{subfigure}[b]{6.3cm}
+    \centering
+    \includegraphics[width=6.3cm]{../results/hall_effect_results_log_plot.png}
+    \caption{}
+\end{subfigure}
+
+  \caption{(a) the hall sensor specification adapted by \cite{hall_sensor} (b) Lock-In detection results in a plot of DC offset ratio. the blue line is not fitting. }
+  \label{fig: hall_effect_log_results}
+\end{figure}
+
+The magnetic field with volume is given as \ref{equation: magnetic field}.
+$r, a,b,h, M$ is the distance between the magnet and sensor, width, length, height and the dipole moment density respectively.
+This equation assumes the magnet has a uniform dipole moment, which may not be valid enough, so the width, length and height are considered as the effective value.
+The equation limits to a point dipole magnetic field in the condition of $a,b,h << r$, but the experimental fitting proves the magnet is not small enough.
+
+\begin{equation}
+  B(r) = \frac{\mu_0 M}{\pi} \left[\tan^{-1}(\frac{ab}{2r \sqrt{4r^2 +a^2 + b^2}}) - \tan^{-1}(\frac{ab}{2(r+h) \sqrt{4(r+h)^2 + a^2+b^2}})\right]
+  \label{equation: magnetic field}
+\end{equation}
+
+By using the fitting function of the equation, the result is plotted in Fig. \ref{fig: hall_sensor_results}.
+The dipole moment density by the fitting is $M = (3.3 \pm 0.1) \times 10^7 [kg/ (mT s^2 mm^2)] = (3.3 \pm 0.1) \times 10^{16} [A/m]$ ($R^2 = 0.970$).
+The result is very accurate by the lock-in detection.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=6.3cm]{../results/hall_sensor_plot.png}
+
+  \caption{(a) the hall sensor specification adapted by \cite{hall_sensor} (b) Lock-In detection results in a plot of DC offset ratio. the blue line is not fitting. }
+  \label{fig: hall_sensor_results}
+\end{figure}
 
 
 \section{Summary}
+ I pull off the lock-in detection experiment in the next step.
+ The experiment has an unavoidable error of unexpected gain and phase response from each module.
+ But by the method I claim allows the experiment to measure the real value of phase shift, the lock-in amplifier can measure the output signal with higher accuracy.
+ Also. the magnetic dipole moment density of the magnet is successfully measured.
+ The magnetic field has narrow nature of detection, the dipole moment gives a subtle response to capture noise.
+ Therefore, the lock-in detection module is tested in several parameters such as S/N ratio, and frequencies.
+ With the proven stability of lock-in detection, I can measure the result with high accuracy.
+ But, my fitting in the last equation can not prove the magnetic dipole effective length, so only the dipole density can measure.
+ The measurement data from different angles, the experimental results have more development potential left.
 
-\cite{abcd}
+
 \bibliography{lock_in_ref}
 \bibliographystyle{plain}
 \end{document}

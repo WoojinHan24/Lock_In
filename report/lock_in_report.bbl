@@ -1,23 +1,21 @@
 \begin{thebibliography}{1}
 
-\bibitem{github}
-someone.
-\newblock something.
-
-\bibitem{signal_processor}
-someone.
-\newblock something.
-
 \bibitem{hall_sensor}
-someone.
-\newblock something.
+Matrixopto.
+\newblock Hall sensor.
 
 \bibitem{manual}
-someone.
-\newblock something.
+Kim Sol.
+\newblock Guide manual for intermediate physics experiment.
 
-\bibitem{abcd}
-someone.
-\newblock something.
+\bibitem{signal_processor}
+Teach spin.
+\newblock Signal processor lock-in amplifier.
+\newblock \\\url{https://www.teachspin.com/signal-processor-lock-in}.
+
+\bibitem{github}
+WoojinHan24.
+\newblock Lock in.
+\newblock \url{https://github.com/WoojinHan24/Lock_In}.
 
 \end{thebibliography}
